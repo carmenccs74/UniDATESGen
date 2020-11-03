@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="UniDATESGenNHibernate"
+		                   namespace="UniDATESGenNHibernate.EN.UniDATES">
+		    
+		    
+			
+				<class name="FiltrosEN" table="Filtros"> 
+				  	
+						<id name="IdFiltros" column="idFiltrosFiltros" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="ObjetivoCita" > 
+						<column name="objetivoCita"  not-null="true"/>
+					</property>
+					<property name="Universidad" type="string"> 
+						<column name="universidad"  not-null="true"/>
+					</property>
+					<property name="Curso" type="integer"> 
+						<column name="curso"  not-null="true"/>
+					</property>
+					<property name="Grado" type="string"> 
+						<column name="grado"  not-null="true"/>
+					</property>
+					<property name="Facultad" type="string"> 
+						<column name="facultad"  not-null="true"/>
+					</property>
+					<property name="Gastronomia" > 
+						<column name="gastronomia"  not-null="true"/>
+					</property>
+					<property name="Deporte" > 
+						<column name="deporte"  not-null="true"/>
+					</property>
+					<property name="Ocio" > 
+						<column name="ocio"  not-null="true"/>
+					</property>
+					<property name="GustosMusicales" > 
+						<column name="gustosMusicales"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="Busqueda" class="UniDATESGenNHibernate.EN.UniDATES.BusquedaEN" >	
+								<column name="FK_IDbusqueda_idBusqueda"/> 
+						</many-to-one>
+											 					
+			
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="FiltrosENReadAllHQL">from FiltrosEN</query>
+		</hibernate-mapping>
+	

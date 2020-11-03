@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="UniDATESGenNHibernate"
+		                   namespace="UniDATESGenNHibernate.EN.UniDATES">
+		    
+		    
+			
+				<class name="CitaEN" table="Cita"> 
+				  	
+						<id name="IdCita" column="IDcita" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Objetivo" > 
+						<column name="objetivo"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+		  			
+						<many-to-one name="UsuarioSolicitante" class="UniDATESGenNHibernate.EN.UniDATES.UsuarioEN" >	
+								<column name="FK_ID Usuario_idUsuario"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="UsuarioReceptor" class="UniDATESGenNHibernate.EN.UniDATES.UsuarioEN" >	
+								<column name="FK_ID Usuario_idUsuario_0"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="CitaENReadAllHQL">from CitaEN</query>
+		</hibernate-mapping>
+	

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="UniDATESGenNHibernate"
+		                   namespace="UniDATESGenNHibernate.EN.UniDATES">
+		    
+		    
+			
+				<class name="SesionEN" table="Sesion"> 
+				  	
+						<id name="IdSesion" column="attribute" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="FechaInicio" type="date"> 
+						<column name="fechaInicio"  not-null="true"/>
+					</property>
+					<property name="FechaFin" type="date"> 
+						<column name="fechaFin"  unique="true" not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+		  			
+						<bag name="Usuario" >
+							<key>
+							
+								
+								<column name="FK_attribute_idSesion"/>
+					      	</key>
+							<one-to-many class="UniDATESGenNHibernate.EN.UniDATES.UsuarioEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Administrador" >
+							<key>
+							
+								
+								<column name="FK_attribute_idSesion"/>
+					      	</key>
+							<one-to-many class="UniDATESGenNHibernate.EN.UniDATES.AdministradorEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="SesionENReadAllHQL">from SesionEN</query>
+		</hibernate-mapping>
+	

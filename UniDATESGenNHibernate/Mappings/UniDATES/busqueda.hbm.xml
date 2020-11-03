@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="UniDATESGenNHibernate"
+		                   namespace="UniDATESGenNHibernate.EN.UniDATES">
+		    
+		    
+			
+				<class name="BusquedaEN" table="Busqueda"> 
+				  	
+						<id name="IdBusqueda" column="IDbusqueda" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+			
+			
+			
+		  			
+						<many-to-one name="Usuario" class="UniDATESGenNHibernate.EN.UniDATES.UsuarioEN" >	
+								<column name="FK_ID Usuario_idUsuario"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<bag name="Filtros" cascade="delete">
+							<key>
+							
+								
+								<column name="FK_IDbusqueda_idBusqueda"/>
+					      	</key>
+							<one-to-many class="UniDATESGenNHibernate.EN.UniDATES.FiltrosEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Resultado" cascade="delete">
+							<key>
+							
+								
+								<column name="FK_IDbusqueda_idBusqueda"/>
+					      	</key>
+							<one-to-many class="UniDATESGenNHibernate.EN.UniDATES.ResultadoEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="BusquedaENReadAllHQL">from BusquedaEN</query>
+		</hibernate-mapping>
+	

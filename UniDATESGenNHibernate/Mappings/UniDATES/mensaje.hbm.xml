@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="UniDATESGenNHibernate"
+		                   namespace="UniDATESGenNHibernate.EN.UniDATES">
+		    
+		    
+			
+				<class name="MensajeEN" table="Mensaje"> 
+				  	
+						<id name="IdMensaje" column="idMensajeMensaje" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Texto" type="string"> 
+						<column name="texto"  not-null="true"/>
+					</property>
+					<property name="Imagen" type="string"> 
+						<column name="imagen"  not-null="true"/>
+					</property>
+					<property name="Video" type="string"> 
+						<column name="video"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="Emisor" class="UniDATESGenNHibernate.EN.UniDATES.UsuarioEN" >	
+								<column name="FK_ID Usuario_idUsuario"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<bag name="Receptor" table="[usuario_mensaje_2]" inverse="true" >
+							<key>
+								
+									<column name="FK_idMensajeMensaje_idMensaje"/> 
+							</key>
+      						<many-to-many class="UniDATESGenNHibernate.EN.UniDATES.UsuarioEN">
+									<column name="FK_ID Usuario_idReceptor"/> 
+      						</many-to-many>
+    					</bag>
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="MensajeENReadAllHQL">from MensajeEN</query>
+		</hibernate-mapping>
+	

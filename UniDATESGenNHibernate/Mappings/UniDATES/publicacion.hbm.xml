@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="UniDATESGenNHibernate"
+		                   namespace="UniDATESGenNHibernate.EN.UniDATES">
+		    
+		    
+			
+				<class name="PublicacionEN" table="Publicacion"> 
+				  	
+						<id name="IdPublicacion" column="attribute" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Foto" type="string"> 
+						<column name="foto"  not-null="true"/>
+					</property>
+			
+			
+			
+		  			
+						<many-to-one name="Usuario" class="UniDATESGenNHibernate.EN.UniDATES.UsuarioEN" >	
+								<column name="FK_ID Usuario_idUsuario"/> 
+						</many-to-one>
+											 					
+			
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="PublicacionENReadAllHQL">from PublicacionEN</query>
+		</hibernate-mapping>
+	

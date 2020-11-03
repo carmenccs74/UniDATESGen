@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="UniDATESGenNHibernate"
+		                   namespace="UniDATESGenNHibernate.EN.UniDATES">
+		    
+		    
+			
+				<class name="UsuarioEN" table="Usuario"> 
+				  	
+						<id name="IdUsuario" column="ID Usuario" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+					<property name="Apellidos" type="string"> 
+						<column name="apellidos"  not-null="true"/>
+					</property>
+					<property name="Contraseña" type="string"> 
+						<column name="contraseña"  not-null="true"/>
+					</property>
+					<property name="Email" type="string"> 
+						<column name="email"  unique="true" not-null="true"/>
+					</property>
+					<property name="Telefono" type="integer"> 
+						<column name="telefono"  not-null="true"/>
+					</property>
+					<property name="Sexo" > 
+						<column name="sexo"  not-null="true"/>
+					</property>
+					<property name="Universidad" type="string"> 
+						<column name="universidad"  not-null="true"/>
+					</property>
+					<property name="Facultad" type="string"> 
+						<column name="facultad"  not-null="true"/>
+					</property>
+					<property name="Grado" type="string"> 
+						<column name="grado"  not-null="true"/>
+					</property>
+					<property name="Curso" type="integer"> 
+						<column name="curso"  not-null="true"/>
+					</property>
+					<property name="Objetivo" > 
+						<column name="objetivo"  not-null="true"/>
+					</property>
+					<property name="Descripcion" type="string"> 
+						<column name="descripcion"  not-null="true"/>
+					</property>
+					<property name="GustoGastronomico" type="string"> 
+						<column name="gustoGastronomico"  not-null="true"/>
+					</property>
+					<property name="Ocio" type="string"> 
+						<column name="ocio"  not-null="true"/>
+					</property>
+					<property name="GustoMusical" > 
+						<column name="gustoMusical"  not-null="true"/>
+					</property>
+					<property name="Deporte" > 
+						<column name="deporte"  not-null="true"/>
+					</property>
+					<property name="RegistroCitas" type="string"> 
+						<column name="registroCitas"  not-null="true"/>
+					</property>
+					<property name="RegistroDenuncias" type="string"> 
+						<column name="registroDenuncias"  not-null="true"/>
+					</property>
+					<property name="Bloqueado" type="character"> 
+						<column name="bloqueado"  not-null="true"/>
+					</property>
+					<property name="FechaAlta" type="date"> 
+						<column name="fechaAlta"  not-null="true"/>
+					</property>
+					<property name="FechaBaja" type="date"> 
+						<column name="fechaBaja"  not-null="true"/>
+					</property>
+					<property name="OrientaciónSexual" > 
+						<column name="orientaciónSexual"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="Busqueda" >
+							<key>
+							
+								
+								<column name="FK_ID Usuario_idUsuario"/>
+					      	</key>
+							<one-to-many class="UniDATESGenNHibernate.EN.UniDATES.BusquedaEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Publicacion" >
+							<key>
+							
+								
+								<column name="FK_ID Usuario_idUsuario"/>
+					      	</key>
+							<one-to-many class="UniDATESGenNHibernate.EN.UniDATES.PublicacionEN"/>
+					    </bag>
+					
+			
+		  			
+						<many-to-one name="Sesion" class="UniDATESGenNHibernate.EN.UniDATES.SesionEN" >	
+								<column name="FK_attribute_idSesion"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<bag name="IncidenciasDenunciadas" >
+							<key>
+							
+								
+								<column name="FK_ID Usuario_idUsuario"/>
+					      	</key>
+							<one-to-many class="UniDATESGenNHibernate.EN.UniDATES.IncidenciaEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="IncidenciasRecibidas" >
+							<key>
+							
+								
+								<column name="FK_ID Usuario_idUsuario_0"/>
+					      	</key>
+							<one-to-many class="UniDATESGenNHibernate.EN.UniDATES.IncidenciaEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="CitasSolicitadas" >
+							<key>
+							
+								
+								<column name="FK_ID Usuario_idUsuario"/>
+					      	</key>
+							<one-to-many class="UniDATESGenNHibernate.EN.UniDATES.CitaEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="CitasPendientes" >
+							<key>
+							
+								
+								<column name="FK_ID Usuario_idUsuario_0"/>
+					      	</key>
+							<one-to-many class="UniDATESGenNHibernate.EN.UniDATES.CitaEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="MensajesEnviados" >
+							<key>
+							
+								
+								<column name="FK_ID Usuario_idUsuario"/>
+					      	</key>
+							<one-to-many class="UniDATESGenNHibernate.EN.UniDATES.MensajeEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="MensajesRecibidos" table="[usuario_mensaje_2]"  >
+							<key>
+								
+									<column name="FK_ID Usuario_idReceptor"/> 
+							</key>
+      						<many-to-many class="UniDATESGenNHibernate.EN.UniDATES.MensajeEN">
+									<column name="FK_idMensajeMensaje_idMensaje"/> 
+      						</many-to-many>
+    					</bag>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="UsuarioENReadAllHQL">from UsuarioEN</query>
+		</hibernate-mapping>
+	

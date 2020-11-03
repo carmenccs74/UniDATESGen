@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="UniDATESGenNHibernate"
+		                   namespace="UniDATESGenNHibernate.EN.UniDATES">
+		    
+		    
+			
+				
+<joined-subclass name="UsuarioPremiumEN" extends="UniDATESGenNHibernate.EN.UniDATES.UsuarioEN" table="UsuarioPremium"> 
+	<key>
+    	
+				<column name="ID Usuario"/>
+		
+    	
+   	</key>
+
+			
+					
+					<property name="NumeroTarjeta" type="integer"> 
+						<column name="numeroTarjeta"  not-null="true"/>
+					</property>
+					<property name="Titular" type="string"> 
+						<column name="titular"  not-null="true"/>
+					</property>
+					<property name="FechaCaducidad" type="date"> 
+						<column name="fechaCaducidad"  not-null="true"/>
+					</property>
+					<property name="Cvv" type="integer"> 
+						<column name="cvv"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="PlanesPremium" class="UniDATESGenNHibernate.EN.UniDATES.PlanesPremiumEN" >	
+								<column name="FK_IDplan_idPlanesPremium"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+					
+		
+ 	  
+		 </joined-subclass>
+		  
+		  <query name="UsuarioPremiumENReadAllHQL">from UsuarioPremiumEN</query>
+		</hibernate-mapping>
+	
