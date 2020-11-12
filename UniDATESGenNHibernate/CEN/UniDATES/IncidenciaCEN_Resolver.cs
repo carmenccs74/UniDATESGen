@@ -26,6 +26,8 @@ public void Resolver (int p_oid)
         // Write here your custom code...
 
         throw new NotImplementedException ("Method Resolver() not yet implemented.");
+        
+        /*Hola*/
 
         /*PROTECTED REGION END*/
 }
