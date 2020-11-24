@@ -43,7 +43,7 @@
 		 </class>	
 		  
 		  <query name="CitaENReadAllHQL">from CitaEN</query>
-		  <query name="CitaENDameChatsHQL"><![CDATA[select cit FROM CitaEN as cit where cit.UsuarioReceptor.Nombre = :usu_nombre and cit.Aceptada = true or cit.UsuarioSolicitante.Nombre = :usu_nombre]]></query>
-		  <query name="CitaENDamePendientesHQL"><![CDATA[FROM CitaEN as cit where cit.Aceptada = false and cit.UsuarioReceptor.Nombre = :usu_nombre]]></query>
+		  <query name="CitaENDameChatsHQL"><![CDATA[select cit FROM CitaEN as cit where cit.UsuarioReceptor.IdUsuario = :usu_id and cit.Aceptada = true or cit.UsuarioSolicitante.IdUsuario = :usu_id]]></query>
+		  <query name="CitaENDamePendientesHQL"><![CDATA[FROM CitaEN as cit where cit.Aceptada = false and cit.UsuarioReceptor.IdUsuario = :usu_id]]></query>
 		</hibernate-mapping>
 	

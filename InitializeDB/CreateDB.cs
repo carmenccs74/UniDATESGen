@@ -94,7 +94,7 @@ public static void InitializeData ()
                 int cita2_id = citCEN.New_ (ObjetivoEnum.amor, usu5_id, usu3_id, false);
                 int cita3_id = citCEN.New_ (ObjetivoEnum.sexo, usu4_id, usu2_id, false);
                 citCEN.Aceptar (cita1_id, true);
-                IList<CitaEN> citasSolicitadas = citCEN.DameChats ("Juanito");
+                IList<CitaEN> citasSolicitadas = citCEN.DameChats (usu2_id);
 
                 //Se recorren las citas que tiene Juanito (ya sea como solicitante o receptor)
                 Console.WriteLine ("Citas solicitadas: ");
@@ -106,7 +106,7 @@ public static void InitializeData ()
                 }
 
                 //Se recorren las citas que han solicitado a Juanito y todavía no las ha aceptado
-                IList<CitaEN> citasPendientes = citCEN.DamePendientes ("Juanito");
+                IList<CitaEN> citasPendientes = citCEN.DamePendientes (usu2_id);
                 Console.WriteLine ("Citas pendientes: ");
                 foreach (CitaEN ci in citasPendientes) {
                         Console.WriteLine ("IDcita: " + ci.IdCita);

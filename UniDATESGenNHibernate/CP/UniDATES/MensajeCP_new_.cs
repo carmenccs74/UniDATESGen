@@ -72,8 +72,8 @@ public UniDATESGenNHibernate.EN.UniDATES.MensajeEN New_ (string p_texto, string 
                 oid = mensajeCAD.New_ (mensajeEN);
                 CitaEN citaEN = null;
 
-                IList<CitaEN> citasSolicitadasE = citaCEN.DameChats (mensajeEN.Emisor.Nombre);
-                IList<CitaEN> citasSolicitadasR = citaCEN.DameChats (mensajeEN.Receptor.Nombre);
+                IList<CitaEN> citasSolicitadasE = citaCEN.DameChats (mensajeEN.Emisor.IdUsuario);
+                IList<CitaEN> citasSolicitadasR = citaCEN.DameChats (mensajeEN.Receptor.IdUsuario);
                 int idCita = -1;
                 foreach (CitaEN cit in citasSolicitadasE) {
                         int idCitaEmisor = cit.IdCita;

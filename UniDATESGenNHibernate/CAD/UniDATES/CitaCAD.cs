@@ -182,16 +182,16 @@ public void Rechazar (int idCita
         }
 }
 
-public System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.CitaEN> DameChats (string usu_nombre)
+public System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.CitaEN> DameChats (int ? usu_id)
 {
         System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.CitaEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM CitaEN self where select cit FROM CitaEN as cit where cit.UsuarioReceptor.Nombre = :usu_nombre and cit.Aceptada = true or cit.UsuarioSolicitante.Nombre = :usu_nombre";
+                //String sql = @"FROM CitaEN self where select cit FROM CitaEN as cit where cit.UsuarioReceptor.IdUsuario = :usu_id and cit.Aceptada = true or cit.UsuarioSolicitante.IdUsuario = :usu_id";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("CitaENDameChatsHQL");
-                query.SetParameter ("usu_nombre", usu_nombre);
+                query.SetParameter ("usu_id", usu_id);
 
                 result = query.List<UniDATESGenNHibernate.EN.UniDATES.CitaEN>();
                 SessionCommit ();
@@ -212,16 +212,16 @@ public System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.CitaEN
 
         return result;
 }
-public System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.CitaEN> DamePendientes (string usu_nombre)
+public System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.CitaEN> DamePendientes (int ? usu_id)
 {
         System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.CitaEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM CitaEN self where FROM CitaEN as cit where cit.Aceptada = false and cit.UsuarioReceptor.Nombre = :usu_nombre";
+                //String sql = @"FROM CitaEN self where FROM CitaEN as cit where cit.Aceptada = false and cit.UsuarioReceptor.IdUsuario = :usu_id";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("CitaENDamePendientesHQL");
-                query.SetParameter ("usu_nombre", usu_nombre);
+                query.SetParameter ("usu_id", usu_id);
 
                 result = query.List<UniDATESGenNHibernate.EN.UniDATES.CitaEN>();
                 SessionCommit ();

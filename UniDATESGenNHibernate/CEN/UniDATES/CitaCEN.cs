@@ -45,13 +45,13 @@ public void Rechazar (int idCita
         _ICitaCAD.Rechazar (idCita);
 }
 
-public System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.CitaEN> DameChats (string usu_nombre)
+public System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.CitaEN> DameChats (int ? usu_id)
 {
-        return _ICitaCAD.DameChats (usu_nombre);
+        return _ICitaCAD.DameChats (usu_id);
 }
-public System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.CitaEN> DamePendientes (string usu_nombre)
+public System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.CitaEN> DamePendientes (int ? usu_id)
 {
-        return _ICitaCAD.DamePendientes (usu_nombre);
+        return _ICitaCAD.DamePendientes (usu_id);
 }
 public CitaEN ReadOID (int idCita
                        )

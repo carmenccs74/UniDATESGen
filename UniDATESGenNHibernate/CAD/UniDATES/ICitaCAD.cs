@@ -21,10 +21,10 @@ void Rechazar (int idCita
                );
 
 
-System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.CitaEN> DameChats (string usu_nombre);
+System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.CitaEN> DameChats (int ? usu_id);
 
 
-System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.CitaEN> DamePendientes (string usu_nombre);
+System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.CitaEN> DamePendientes (int ? usu_id);
 
 
 CitaEN ReadOID (int idCita
