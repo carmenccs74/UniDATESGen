@@ -7,7 +7,7 @@
 			
 				<class name="UsuarioEN" table="Usuario"> 
 				  	
-						<id name="IdUsuario" column="ID Usuario" type="integer"> 
+						<id name="IdUsuario" column="IDUsuario" type="integer"> 
 							<generator class="hilo"/>
 						</id>
 			
@@ -31,52 +31,61 @@
 						<column name="sexo"  not-null="true"/>
 					</property>
 					<property name="Universidad" type="string"> 
-						<column name="universidad"  not-null="true"/>
+						<column name="universidad" />
 					</property>
 					<property name="Facultad" type="string"> 
-						<column name="facultad"  not-null="true"/>
+						<column name="facultad" />
 					</property>
 					<property name="Grado" type="string"> 
-						<column name="grado"  not-null="true"/>
+						<column name="grado" />
 					</property>
 					<property name="Curso" type="integer"> 
-						<column name="curso"  not-null="true"/>
+						<column name="curso" />
 					</property>
 					<property name="Objetivo" > 
-						<column name="objetivo"  not-null="true"/>
+						<column name="objetivo" />
 					</property>
 					<property name="Descripcion" type="string"> 
-						<column name="descripcion"  not-null="true"/>
+						<column name="descripcion" />
 					</property>
-					<property name="GustoGastronomico" type="string"> 
-						<column name="gustoGastronomico"  not-null="true"/>
+					<property name="GustoGastronomico" > 
+						<column name="gustoGastronomico" />
 					</property>
-					<property name="Ocio" type="string"> 
-						<column name="ocio"  not-null="true"/>
+					<property name="Ocio" > 
+						<column name="ocio" />
 					</property>
 					<property name="GustoMusical" > 
-						<column name="gustoMusical"  not-null="true"/>
+						<column name="gustoMusical" />
 					</property>
 					<property name="Deporte" > 
-						<column name="deporte"  not-null="true"/>
+						<column name="deporte" />
 					</property>
 					<property name="RegistroCitas" type="string"> 
-						<column name="registroCitas"  not-null="true"/>
+						<column name="registroCitas" />
 					</property>
 					<property name="RegistroDenuncias" type="string"> 
-						<column name="registroDenuncias"  not-null="true"/>
+						<column name="registroDenuncias" />
 					</property>
-					<property name="Bloqueado" type="character"> 
+					<property name="Bloqueado" type="boolean"> 
 						<column name="bloqueado"  not-null="true"/>
 					</property>
 					<property name="FechaAlta" type="date"> 
-						<column name="fechaAlta"  not-null="true"/>
+						<column name="fechaAlta" />
 					</property>
 					<property name="FechaBaja" type="date"> 
-						<column name="fechaBaja"  not-null="true"/>
+						<column name="fechaBaja" />
 					</property>
 					<property name="OrientaciónSexual" > 
 						<column name="orientaciónSexual"  not-null="true"/>
+					</property>
+					<property name="Denunciado" type="boolean"> 
+						<column name="denunciado"  not-null="true"/>
+					</property>
+					<property name="Premium" type="boolean"> 
+						<column name="premium"  not-null="true"/>
+					</property>
+					<property name="UsuariosBloqueados" type="string"> 
+						<column name="usuariosBloqueados" />
 					</property>
 			
 			
@@ -104,13 +113,13 @@
 			
 			
 		  			
-						<bag name="Busqueda" >
+						<bag name="Filtros" >
 							<key>
 							
 								
-								<column name="FK_ID Usuario_idUsuario"/>
+								<column name="FK_IDUsuario_idUsuario"/>
 					      	</key>
-							<one-to-many class="UniDATESGenNHibernate.EN.UniDATES.BusquedaEN"/>
+							<one-to-many class="UniDATESGenNHibernate.EN.UniDATES.FiltrosEN"/>
 					    </bag>
 					
 			
@@ -119,24 +128,29 @@
 							<key>
 							
 								
-								<column name="FK_ID Usuario_idUsuario"/>
+								<column name="FK_IDUsuario_idUsuario"/>
 					      	</key>
 							<one-to-many class="UniDATESGenNHibernate.EN.UniDATES.PublicacionEN"/>
 					    </bag>
 					
 			
 		  			
-						<many-to-one name="Sesion" class="UniDATESGenNHibernate.EN.UniDATES.SesionEN" >	
-								<column name="FK_attribute_idSesion"/> 
-						</many-to-one>
-											 					
+						<bag name="Sesion" >
+							<key>
+							
+								
+								<column name="FK_IDUsuario_idUsuario"/>
+					      	</key>
+							<one-to-many class="UniDATESGenNHibernate.EN.UniDATES.SesionEN"/>
+					    </bag>
+					
 			
 		  			
 						<bag name="IncidenciasDenunciadas" >
 							<key>
 							
 								
-								<column name="FK_ID Usuario_idUsuario"/>
+								<column name="FK_IDUsuario_idUsuario"/>
 					      	</key>
 							<one-to-many class="UniDATESGenNHibernate.EN.UniDATES.IncidenciaEN"/>
 					    </bag>
@@ -147,7 +161,7 @@
 							<key>
 							
 								
-								<column name="FK_ID Usuario_idUsuario_0"/>
+								<column name="FK_IDUsuario_idUsuario_0"/>
 					      	</key>
 							<one-to-many class="UniDATESGenNHibernate.EN.UniDATES.IncidenciaEN"/>
 					    </bag>
@@ -158,7 +172,7 @@
 							<key>
 							
 								
-								<column name="FK_ID Usuario_idUsuario"/>
+								<column name="FK_IDUsuario_idUsuario"/>
 					      	</key>
 							<one-to-many class="UniDATESGenNHibernate.EN.UniDATES.CitaEN"/>
 					    </bag>
@@ -169,7 +183,7 @@
 							<key>
 							
 								
-								<column name="FK_ID Usuario_idUsuario_0"/>
+								<column name="FK_IDUsuario_idUsuario_0"/>
 					      	</key>
 							<one-to-many class="UniDATESGenNHibernate.EN.UniDATES.CitaEN"/>
 					    </bag>
@@ -180,22 +194,35 @@
 							<key>
 							
 								
-								<column name="FK_ID Usuario_idUsuario"/>
+								<column name="FK_IDUsuario_idUsuario"/>
 					      	</key>
 							<one-to-many class="UniDATESGenNHibernate.EN.UniDATES.MensajeEN"/>
 					    </bag>
 					
 			
 		  			
-						<bag name="MensajesRecibidos" table="[usuario_mensaje_2]"  >
+						<bag name="MensajesRecibidos" >
 							<key>
+							
 								
-									<column name="FK_ID Usuario_idReceptor"/> 
-							</key>
-      						<many-to-many class="UniDATESGenNHibernate.EN.UniDATES.MensajeEN">
-									<column name="FK_idMensajeMensaje_idMensaje"/> 
-      						</many-to-many>
-    					</bag>
+								<column name="FK_IDUsuario_idReceptor"/>
+					      	</key>
+							<one-to-many class="UniDATESGenNHibernate.EN.UniDATES.MensajeEN"/>
+					    </bag>
+					
+			
+			
+			
+			
+		  			
+						<many-to-one name="PlanesPremium" class="UniDATESGenNHibernate.EN.UniDATES.PlanesPremiumEN" >	
+								<column name="FK_IDplan_idPlanesPremium"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
 					
 					
 					
@@ -232,5 +259,11 @@
 		 </class>	
 		  
 		  <query name="UsuarioENReadAllHQL">from UsuarioEN</query>
+		  <query name="UsuarioENBuscarUsuarioHQL"><![CDATA[select usu FROM UsuarioEN as usu where usu.Nombre = :p_nombre]]></query>
+		  <query name="UsuarioENDameUsuarioPorFiltroHQL"><![CDATA[select usu FROM UsuarioEN as usu where (:p_sexo is not null and usu.Sexo = :p_sexo) or (:p_universidad is not null and usu.Universidad = :p_universidad) or (:p_facultad is not null and usu.Facultad = :p_facultad) or (:p_grado is not null and usu.Grado = :p_grado) or (:p_curso is not null and usu.Curso = :p_curso) or (:p_objetivo is not null and usu.Objetivo = :p_objetivo) or (:p_gustoGastronomico is not null and usu.GustoGastronomico = :p_gustoGastronomico) or (:p_ocio is not null and usu.Ocio = :p_ocio) or (:p_gustoMusical is not null and usu.GustoMusical = :p_gustoMusical) or (:p_deporte is not null and usu.Deporte = :p_deporte)]]></query>
+		  <query name="UsuarioENDameUsuariosBloqueadosHQL"><![CDATA[select usu FROM UsuarioEN as usu where usu.Bloqueado = true]]></query>
+		  <query name="UsuarioENDameUsuariosDenunciadosHQL"><![CDATA[select usu FROM UsuarioEN as usu where usu.Denunciado = true]]></query>
+		  <query name="UsuarioENDameUsuariosRegistradosHQL"><![CDATA[select usu FROM UsuarioEN as usu where (usu.FechaBaja is null)]]></query>
+		  <query name="UsuarioENDameUsuariosEliminadosHQL"><![CDATA[select usu FROM UsuarioEN as usu where (usu.FechaBaja is not null)]]></query>
 		</hibernate-mapping>
 	

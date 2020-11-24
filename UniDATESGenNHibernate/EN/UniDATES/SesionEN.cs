@@ -29,14 +29,14 @@ private Nullable<DateTime> fechaFin;
 /**
  *	Atributo usuario
  */
-private System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN> usuario;
+private UniDATESGenNHibernate.EN.UniDATES.UsuarioEN usuario;
 
 
 
 /**
  *	Atributo administrador
  */
-private System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.AdministradorEN> administrador;
+private UniDATESGenNHibernate.EN.UniDATES.AdministradorEN administrador;
 
 
 
@@ -61,13 +61,13 @@ public virtual Nullable<DateTime> FechaFin {
 
 
 
-public virtual System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN> Usuario {
+public virtual UniDATESGenNHibernate.EN.UniDATES.UsuarioEN Usuario {
         get { return usuario; } set { usuario = value;  }
 }
 
 
 
-public virtual System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.AdministradorEN> Administrador {
+public virtual UniDATESGenNHibernate.EN.UniDATES.AdministradorEN Administrador {
         get { return administrador; } set { administrador = value;  }
 }
 
@@ -77,13 +77,11 @@ public virtual System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATE
 
 public SesionEN()
 {
-        usuario = new System.Collections.Generic.List<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN>();
-        administrador = new System.Collections.Generic.List<UniDATESGenNHibernate.EN.UniDATES.AdministradorEN>();
 }
 
 
 
-public SesionEN(int idSesion, Nullable<DateTime> fechaInicio, Nullable<DateTime> fechaFin, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN> usuario, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.AdministradorEN> administrador
+public SesionEN(int idSesion, Nullable<DateTime> fechaInicio, Nullable<DateTime> fechaFin, UniDATESGenNHibernate.EN.UniDATES.UsuarioEN usuario, UniDATESGenNHibernate.EN.UniDATES.AdministradorEN administrador
                 )
 {
         this.init (IdSesion, fechaInicio, fechaFin, usuario, administrador);
@@ -96,7 +94,7 @@ public SesionEN(SesionEN sesion)
 }
 
 private void init (int idSesion
-                   , Nullable<DateTime> fechaInicio, Nullable<DateTime> fechaFin, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN> usuario, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.AdministradorEN> administrador)
+                   , Nullable<DateTime> fechaInicio, Nullable<DateTime> fechaFin, UniDATESGenNHibernate.EN.UniDATES.UsuarioEN usuario, UniDATESGenNHibernate.EN.UniDATES.AdministradorEN administrador)
 {
         this.IdSesion = idSesion;
 

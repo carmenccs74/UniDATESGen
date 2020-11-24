@@ -9,7 +9,7 @@
 <joined-subclass name="UsuarioPremiumEN" extends="UniDATESGenNHibernate.EN.UniDATES.UsuarioEN" table="UsuarioPremium"> 
 	<key>
     	
-				<column name="ID Usuario"/>
+				<column name="IDUsuario"/>
 		
     	
    	</key>

@@ -17,7 +17,7 @@
 			
 		  			
 						<many-to-one name="Usuario" class="UniDATESGenNHibernate.EN.UniDATES.UsuarioEN" >	
-								<column name="FK_ID Usuario_idUsuario"/> 
+								<column name="FK_IDUsuario_idUsuario"/> 
 						</many-to-one>
 											 					
 			

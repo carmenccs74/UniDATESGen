@@ -25,7 +25,8 @@ public void VerPerfil (int p_oid)
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method VerPerfil() not yet implemented.");
+        UsuarioEN en = _IUsuarioCAD.ReadOIDDefault (p_oid);
+
 
         /*PROTECTED REGION END*/
 }

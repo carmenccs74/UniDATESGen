@@ -180,9 +180,6 @@ public void Modify (IncidenciaEN incidencia)
 
                 incidenciaEN.Fecha = incidencia.Fecha;
 
-
-                incidenciaEN.Resolucion = incidencia.Resolucion;
-
                 session.Update (incidenciaEN);
                 SessionCommit ();
         }
@@ -223,6 +220,96 @@ public void Destroy (int idIncidencia
         {
                 SessionClose ();
         }
+}
+
+public System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.IncidenciaEN> DameDenuncias (int ? p_idAdministrador)
+{
+        System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.IncidenciaEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM IncidenciaEN self where FROM IncidenciaEN as inci where inci.Administrador.IdAdministrador = :p_idAdministrador";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("IncidenciaENDameDenunciasHQL");
+                query.SetParameter ("p_idAdministrador", p_idAdministrador);
+
+                result = query.List<UniDATESGenNHibernate.EN.UniDATES.IncidenciaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UniDATESGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UniDATESGenNHibernate.Exceptions.DataLayerException ("Error in IncidenciaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+//Sin e: ReadOID
+//Con e: IncidenciaEN
+public IncidenciaEN ReadOID (int idIncidencia
+                             )
+{
+        IncidenciaEN incidenciaEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                incidenciaEN = (IncidenciaEN)session.Get (typeof(IncidenciaEN), idIncidencia);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UniDATESGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UniDATESGenNHibernate.Exceptions.DataLayerException ("Error in IncidenciaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return incidenciaEN;
+}
+
+public System.Collections.Generic.IList<IncidenciaEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<IncidenciaEN> result = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(IncidenciaEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<IncidenciaEN>();
+                else
+                        result = session.CreateCriteria (typeof(IncidenciaEN)).List<IncidenciaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UniDATESGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UniDATESGenNHibernate.Exceptions.DataLayerException ("Error in IncidenciaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
 }
 }
 }

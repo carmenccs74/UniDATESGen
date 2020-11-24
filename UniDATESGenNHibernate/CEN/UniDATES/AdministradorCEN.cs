@@ -39,21 +39,13 @@ public IAdministradorCAD get_IAdministradorCAD ()
         return this._IAdministradorCAD;
 }
 
-public int Registrarse (int p_sesion, String p_pass, string p_email)
+public int Registrarse (String p_pass, string p_email)
 {
         AdministradorEN administradorEN = null;
         int oid;
 
         //Initialized AdministradorEN
         administradorEN = new AdministradorEN ();
-
-        if (p_sesion != -1) {
-                // El argumento p_sesion -> Property sesion es oid = false
-                // Lista de oids idAdministrador
-                administradorEN.Sesion = new UniDATESGenNHibernate.EN.UniDATES.SesionEN ();
-                administradorEN.Sesion.IdSesion = p_sesion;
-        }
-
         administradorEN.Pass = Utils.Util.GetEncondeMD5 (p_pass);
 
         administradorEN.Email = p_email;
@@ -82,6 +74,23 @@ public void Destroy (int idAdministrador
                      )
 {
         _IAdministradorCAD.Destroy (idAdministrador);
+}
+
+public AdministradorEN ReadOID (int idAdministrador
+                                )
+{
+        AdministradorEN administradorEN = null;
+
+        administradorEN = _IAdministradorCAD.ReadOID (idAdministrador);
+        return administradorEN;
+}
+
+public System.Collections.Generic.IList<AdministradorEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<AdministradorEN> list = null;
+
+        list = _IAdministradorCAD.ReadAll (first, size);
+        return list;
 }
 }
 }

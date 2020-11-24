@@ -127,13 +127,6 @@ public int HacerPremium (UsuarioPremiumEN usuarioPremium)
         try
         {
                 SessionInitializeTransaction ();
-                if (usuarioPremium.Sesion != null) {
-                        // Argumento OID y no colección.
-                        usuarioPremium.Sesion = (UniDATESGenNHibernate.EN.UniDATES.SesionEN)session.Load (typeof(UniDATESGenNHibernate.EN.UniDATES.SesionEN), usuarioPremium.Sesion.IdSesion);
-
-                        usuarioPremium.Sesion.Usuario
-                        .Add (usuarioPremium);
-                }
 
                 session.Save (usuarioPremium);
                 SessionCommit ();
@@ -180,52 +173,19 @@ public void Modify (UsuarioPremiumEN usuarioPremium)
                 usuarioPremiumEN.Sexo = usuarioPremium.Sexo;
 
 
-                usuarioPremiumEN.Universidad = usuarioPremium.Universidad;
-
-
-                usuarioPremiumEN.Facultad = usuarioPremium.Facultad;
-
-
-                usuarioPremiumEN.Grado = usuarioPremium.Grado;
-
-
-                usuarioPremiumEN.Curso = usuarioPremium.Curso;
-
-
-                usuarioPremiumEN.Objetivo = usuarioPremium.Objetivo;
-
-
-                usuarioPremiumEN.Descripcion = usuarioPremium.Descripcion;
-
-
-                usuarioPremiumEN.GustoGastronomico = usuarioPremium.GustoGastronomico;
-
-
-                usuarioPremiumEN.Ocio = usuarioPremium.Ocio;
-
-
-                usuarioPremiumEN.GustoMusical = usuarioPremium.GustoMusical;
-
-
-                usuarioPremiumEN.Deporte = usuarioPremium.Deporte;
-
-
-                usuarioPremiumEN.RegistroCitas = usuarioPremium.RegistroCitas;
-
-
-                usuarioPremiumEN.RegistroDenuncias = usuarioPremium.RegistroDenuncias;
-
-
                 usuarioPremiumEN.Bloqueado = usuarioPremium.Bloqueado;
 
 
-                usuarioPremiumEN.FechaAlta = usuarioPremium.FechaAlta;
-
-
-                usuarioPremiumEN.FechaBaja = usuarioPremium.FechaBaja;
-
-
                 usuarioPremiumEN.OrientaciónSexual = usuarioPremium.OrientaciónSexual;
+
+
+                usuarioPremiumEN.Denunciado = usuarioPremium.Denunciado;
+
+
+                usuarioPremiumEN.Premium = usuarioPremium.Premium;
+
+
+                usuarioPremiumEN.UsuariosBloqueados = usuarioPremium.UsuariosBloqueados;
 
 
                 usuarioPremiumEN.NumeroTarjeta = usuarioPremium.NumeroTarjeta;

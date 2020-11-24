@@ -24,26 +24,16 @@
 			
 			
 		  			
-						<bag name="Usuario" >
-							<key>
-							
-								
-								<column name="FK_attribute_idSesion"/>
-					      	</key>
-							<one-to-many class="UniDATESGenNHibernate.EN.UniDATES.UsuarioEN"/>
-					    </bag>
-					
+						<many-to-one name="Usuario" class="UniDATESGenNHibernate.EN.UniDATES.UsuarioEN" >	
+								<column name="FK_IDUsuario_idUsuario"/> 
+						</many-to-one>
+											 					
 			
 		  			
-						<bag name="Administrador" >
-							<key>
-							
-								
-								<column name="FK_attribute_idSesion"/>
-					      	</key>
-							<one-to-many class="UniDATESGenNHibernate.EN.UniDATES.AdministradorEN"/>
-					    </bag>
-					
+						<many-to-one name="Administrador" class="UniDATESGenNHibernate.EN.UniDATES.AdministradorEN" >	
+								<column name="FK_IDadministrador_idAdministrador"/> 
+						</many-to-one>
+											 					
 					
 					
 					

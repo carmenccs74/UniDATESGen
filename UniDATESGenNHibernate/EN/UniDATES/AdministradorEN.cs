@@ -15,7 +15,7 @@ private int idAdministrador;
 /**
  *	Atributo sesion
  */
-private UniDATESGenNHibernate.EN.UniDATES.SesionEN sesion;
+private System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.SesionEN> sesion;
 
 
 
@@ -49,7 +49,7 @@ public virtual int IdAdministrador {
 
 
 
-public virtual UniDATESGenNHibernate.EN.UniDATES.SesionEN Sesion {
+public virtual System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.SesionEN> Sesion {
         get { return sesion; } set { sesion = value;  }
 }
 
@@ -77,12 +77,13 @@ public virtual System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATE
 
 public AdministradorEN()
 {
+        sesion = new System.Collections.Generic.List<UniDATESGenNHibernate.EN.UniDATES.SesionEN>();
         incidencia = new System.Collections.Generic.List<UniDATESGenNHibernate.EN.UniDATES.IncidenciaEN>();
 }
 
 
 
-public AdministradorEN(int idAdministrador, UniDATESGenNHibernate.EN.UniDATES.SesionEN sesion, String pass, string email, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.IncidenciaEN> incidencia
+public AdministradorEN(int idAdministrador, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.SesionEN> sesion, String pass, string email, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.IncidenciaEN> incidencia
                        )
 {
         this.init (IdAdministrador, sesion, pass, email, incidencia);
@@ -95,7 +96,7 @@ public AdministradorEN(AdministradorEN administrador)
 }
 
 private void init (int idAdministrador
-                   , UniDATESGenNHibernate.EN.UniDATES.SesionEN sesion, String pass, string email, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.IncidenciaEN> incidencia)
+                   , System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.SesionEN> sesion, String pass, string email, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.IncidenciaEN> incidencia)
 {
         this.IdAdministrador = idAdministrador;
 

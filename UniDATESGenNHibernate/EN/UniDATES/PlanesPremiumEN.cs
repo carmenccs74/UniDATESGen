@@ -8,7 +8,7 @@ public partial class PlanesPremiumEN
 /**
  *	Atributo idPlan
  */
-private int idPlan;
+private UniDATESGenNHibernate.Enumerated.UniDATES.PlanesPremEnum idPlan;
 
 
 
@@ -36,14 +36,14 @@ private string nombre;
 /**
  *	Atributo usuarioPremium
  */
-private System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.UsuarioPremiumEN> usuarioPremium;
+private System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN> usuarioPremium;
 
 
 
 
 
 
-public virtual int IdPlan {
+public virtual UniDATESGenNHibernate.Enumerated.UniDATES.PlanesPremEnum IdPlan {
         get { return idPlan; } set { idPlan = value;  }
 }
 
@@ -67,7 +67,7 @@ public virtual string Nombre {
 
 
 
-public virtual System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.UsuarioPremiumEN> UsuarioPremium {
+public virtual System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN> UsuarioPremium {
         get { return usuarioPremium; } set { usuarioPremium = value;  }
 }
 
@@ -77,12 +77,12 @@ public virtual System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATE
 
 public PlanesPremiumEN()
 {
-        usuarioPremium = new System.Collections.Generic.List<UniDATESGenNHibernate.EN.UniDATES.UsuarioPremiumEN>();
+        usuarioPremium = new System.Collections.Generic.List<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN>();
 }
 
 
 
-public PlanesPremiumEN(int idPlan, float precio, string descripcion, string nombre, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.UsuarioPremiumEN> usuarioPremium
+public PlanesPremiumEN(UniDATESGenNHibernate.Enumerated.UniDATES.PlanesPremEnum idPlan, float precio, string descripcion, string nombre, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN> usuarioPremium
                        )
 {
         this.init (IdPlan, precio, descripcion, nombre, usuarioPremium);
@@ -94,8 +94,8 @@ public PlanesPremiumEN(PlanesPremiumEN planesPremium)
         this.init (IdPlan, planesPremium.Precio, planesPremium.Descripcion, planesPremium.Nombre, planesPremium.UsuarioPremium);
 }
 
-private void init (int idPlan
-                   , float precio, string descripcion, string nombre, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.UsuarioPremiumEN> usuarioPremium)
+private void init (UniDATESGenNHibernate.Enumerated.UniDATES.PlanesPremEnum idPlan
+                   , float precio, string descripcion, string nombre, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN> usuarioPremium)
 {
         this.IdPlan = idPlan;
 

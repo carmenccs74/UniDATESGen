@@ -19,13 +19,22 @@ namespace UniDATESGenNHibernate.CEN.UniDATES
 {
 public partial class UsuarioCEN
 {
-public void DesbloquearUsuario (int p_oid)
+public void DesbloquearUsuario (int p_oid, int idUsuDesbloquear)
 {
         /*PROTECTED REGION ID(UniDATESGenNHibernate.CEN.UniDATES_Usuario_DesbloquearUsuario) ENABLED START*/
 
-        // Write here your custom code...
+        UsuarioEN usuDesbloquea = _IUsuarioCAD.ReadOIDDefault (p_oid);
 
-        throw new NotImplementedException ("Method DesbloquearUsuario() not yet implemented.");
+        UsuarioEN usuDesbloqueado = _IUsuarioCAD.ReadOIDDefault (idUsuDesbloquear);
+
+        usuDesbloqueado.Bloqueado = false;
+
+        if (usuDesbloquea.UsuariosBloqueados == usuDesbloqueado.Nombre) {
+                usuDesbloquea.UsuariosBloqueados = "";
+        }
+
+        _IUsuarioCAD.ModifyDefault (usuDesbloquea);
+        _IUsuarioCAD.ModifyDefault (usuDesbloqueado);
 
         /*PROTECTED REGION END*/
 }

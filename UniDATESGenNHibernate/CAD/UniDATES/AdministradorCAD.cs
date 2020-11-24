@@ -122,13 +122,6 @@ public int Registrarse (AdministradorEN administrador)
         try
         {
                 SessionInitializeTransaction ();
-                if (administrador.Sesion != null) {
-                        // Argumento OID y no colección.
-                        administrador.Sesion = (UniDATESGenNHibernate.EN.UniDATES.SesionEN)session.Load (typeof(UniDATESGenNHibernate.EN.UniDATES.SesionEN), administrador.Sesion.IdSesion);
-
-                        administrador.Sesion.Administrador
-                        .Add (administrador);
-                }
 
                 session.Save (administrador);
                 SessionCommit ();
@@ -202,6 +195,66 @@ public void Destroy (int idAdministrador
         {
                 SessionClose ();
         }
+}
+
+//Sin e: ReadOID
+//Con e: AdministradorEN
+public AdministradorEN ReadOID (int idAdministrador
+                                )
+{
+        AdministradorEN administradorEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                administradorEN = (AdministradorEN)session.Get (typeof(AdministradorEN), idAdministrador);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UniDATESGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UniDATESGenNHibernate.Exceptions.DataLayerException ("Error in AdministradorCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return administradorEN;
+}
+
+public System.Collections.Generic.IList<AdministradorEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<AdministradorEN> result = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(AdministradorEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<AdministradorEN>();
+                else
+                        result = session.CreateCriteria (typeof(AdministradorEN)).List<AdministradorEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UniDATESGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UniDATESGenNHibernate.Exceptions.DataLayerException ("Error in AdministradorCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
 }
 }
 }

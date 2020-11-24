@@ -16,7 +16,6 @@ System.Collections.Generic.IList<IncidenciaEN> ReadAllDefault (int first, int si
 
 
 
-
 int New_ (IncidenciaEN incidencia);
 
 void Modify (IncidenciaEN incidencia);
@@ -24,5 +23,15 @@ void Modify (IncidenciaEN incidencia);
 
 void Destroy (int idIncidencia
               );
+
+
+System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.IncidenciaEN> DameDenuncias (int ? p_idAdministrador);
+
+
+IncidenciaEN ReadOID (int idIncidencia
+                      );
+
+
+System.Collections.Generic.IList<IncidenciaEN> ReadAll (int first, int size);
 }
 }

@@ -19,14 +19,14 @@ namespace UniDATESGenNHibernate.CEN.UniDATES
 {
 public partial class UsuarioCEN
 {
-public void RestablecerContraseña (int p_oid)
+public void RestablecerContraseña (int p_oid, string nuevaContra)
 {
         /*PROTECTED REGION ID(UniDATESGenNHibernate.CEN.UniDATES_Usuario_RestablecerContraseña) ENABLED START*/
+        UsuarioEN usuarioEN = _IUsuarioCAD.ReadOIDDefault (p_oid);
 
-        // Write here your custom code...
+        usuarioEN.Contraseña = Utils.Util.GetEncondeMD5 (nuevaContra);
 
-        throw new NotImplementedException ("Method RestablecerContraseña() not yet implemented.");
-
+        _IUsuarioCAD.ModifyDefault (usuarioEN);
         /*PROTECTED REGION END*/
 }
 }

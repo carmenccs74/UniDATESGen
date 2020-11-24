@@ -1,0 +1,17 @@
+﻿@model IEnumerable<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN>
+
+@{
+    ViewBag.Title = "Titulo";
+
+}
+
+<h3>Usuarios</h3>
+<table>
+    @foreach (var item in Model) { 
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Nombre) </td>
+            <td>@Html.DisplayFor(modelItem => item.Email) </td>
+        </tr>
+    }
+</table>
+

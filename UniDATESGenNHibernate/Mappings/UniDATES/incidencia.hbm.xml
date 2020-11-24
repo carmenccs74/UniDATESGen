@@ -19,7 +19,7 @@
 						<column name="fecha"  not-null="true"/>
 					</property>
 					<property name="Resolucion" type="string"> 
-						<column name="resolucion"  not-null="true"/>
+						<column name="resolucion" />
 					</property>
 			
 			
@@ -29,13 +29,13 @@
 			
 		  			
 						<many-to-one name="UsuarioDenunciante" class="UniDATESGenNHibernate.EN.UniDATES.UsuarioEN" >	
-								<column name="FK_ID Usuario_idUsuario"/> 
+								<column name="FK_IDUsuario_idUsuario"/> 
 						</many-to-one>
 											 					
 			
 		  			
 						<many-to-one name="UsuarioDenunciado" class="UniDATESGenNHibernate.EN.UniDATES.UsuarioEN" >	
-								<column name="FK_ID Usuario_idUsuario_0"/> 
+								<column name="FK_IDUsuario_idUsuario_0"/> 
 						</many-to-one>
 											 					
 			
@@ -55,5 +55,6 @@
 		 </class>	
 		  
 		  <query name="IncidenciaENReadAllHQL">from IncidenciaEN</query>
+		  <query name="IncidenciaENDameDenunciasHQL"><![CDATA[FROM IncidenciaEN as inci where inci.Administrador.IdAdministrador = :p_idAdministrador]]></query>
 		</hibernate-mapping>
 	

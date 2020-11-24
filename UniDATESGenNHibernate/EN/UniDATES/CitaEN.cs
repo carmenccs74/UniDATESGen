@@ -33,6 +33,13 @@ private UniDATESGenNHibernate.EN.UniDATES.UsuarioEN usuarioReceptor;
 
 
 
+/**
+ *	Atributo aceptada
+ */
+private bool aceptada;
+
+
+
 
 
 
@@ -60,6 +67,12 @@ public virtual UniDATESGenNHibernate.EN.UniDATES.UsuarioEN UsuarioReceptor {
 
 
 
+public virtual bool Aceptada {
+        get { return aceptada; } set { aceptada = value;  }
+}
+
+
+
 
 
 public CitaEN()
@@ -68,20 +81,20 @@ public CitaEN()
 
 
 
-public CitaEN(int idCita, UniDATESGenNHibernate.Enumerated.UniDATES.ObjetivoEnum objetivo, UniDATESGenNHibernate.EN.UniDATES.UsuarioEN usuarioSolicitante, UniDATESGenNHibernate.EN.UniDATES.UsuarioEN usuarioReceptor
+public CitaEN(int idCita, UniDATESGenNHibernate.Enumerated.UniDATES.ObjetivoEnum objetivo, UniDATESGenNHibernate.EN.UniDATES.UsuarioEN usuarioSolicitante, UniDATESGenNHibernate.EN.UniDATES.UsuarioEN usuarioReceptor, bool aceptada
               )
 {
-        this.init (IdCita, objetivo, usuarioSolicitante, usuarioReceptor);
+        this.init (IdCita, objetivo, usuarioSolicitante, usuarioReceptor, aceptada);
 }
 
 
 public CitaEN(CitaEN cita)
 {
-        this.init (IdCita, cita.Objetivo, cita.UsuarioSolicitante, cita.UsuarioReceptor);
+        this.init (IdCita, cita.Objetivo, cita.UsuarioSolicitante, cita.UsuarioReceptor, cita.Aceptada);
 }
 
 private void init (int idCita
-                   , UniDATESGenNHibernate.Enumerated.UniDATES.ObjetivoEnum objetivo, UniDATESGenNHibernate.EN.UniDATES.UsuarioEN usuarioSolicitante, UniDATESGenNHibernate.EN.UniDATES.UsuarioEN usuarioReceptor)
+                   , UniDATESGenNHibernate.Enumerated.UniDATES.ObjetivoEnum objetivo, UniDATESGenNHibernate.EN.UniDATES.UsuarioEN usuarioSolicitante, UniDATESGenNHibernate.EN.UniDATES.UsuarioEN usuarioReceptor, bool aceptada)
 {
         this.IdCita = idCita;
 
@@ -91,6 +104,8 @@ private void init (int idCita
         this.UsuarioSolicitante = usuarioSolicitante;
 
         this.UsuarioReceptor = usuarioReceptor;
+
+        this.Aceptada = aceptada;
 }
 
 public override bool Equals (object obj)

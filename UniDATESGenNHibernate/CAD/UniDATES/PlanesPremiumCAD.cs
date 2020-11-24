@@ -29,7 +29,7 @@ public PlanesPremiumCAD(ISession sessionAux) : base (sessionAux)
 
 
 
-public PlanesPremiumEN ReadOIDDefault (int idPlan
+public PlanesPremiumEN ReadOIDDefault (UniDATESGenNHibernate.Enumerated.UniDATES.PlanesPremEnum idPlan
                                        )
 {
         PlanesPremiumEN planesPremiumEN = null;
@@ -119,7 +119,7 @@ public void ModifyDefault (PlanesPremiumEN planesPremium)
 }
 
 
-public int New_ (PlanesPremiumEN planesPremium)
+public UniDATESGenNHibernate.Enumerated.UniDATES.PlanesPremEnum Pagar (PlanesPremiumEN planesPremium)
 {
         try
         {
@@ -177,7 +177,7 @@ public void Modify (PlanesPremiumEN planesPremium)
                 SessionClose ();
         }
 }
-public void Destroy (int idPlan
+public void Destroy (UniDATESGenNHibernate.Enumerated.UniDATES.PlanesPremEnum idPlan
                      )
 {
         try

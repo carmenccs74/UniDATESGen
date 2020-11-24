@@ -15,9 +15,25 @@ System.Collections.Generic.IList<CitaEN> ReadAllDefault (int first, int size);
 
 
 
-int Aceptar (CitaEN cita);
+int New_ (CitaEN cita);
 
 void Rechazar (int idCita
                );
+
+
+System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.CitaEN> DameChats (string usu_nombre);
+
+
+System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.CitaEN> DamePendientes (string usu_nombre);
+
+
+CitaEN ReadOID (int idCita
+                );
+
+
+System.Collections.Generic.IList<CitaEN> ReadAll (int first, int size);
+
+
+void Aceptar (CitaEN cita);
 }
 }

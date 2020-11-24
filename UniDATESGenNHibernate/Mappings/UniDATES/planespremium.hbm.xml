@@ -6,10 +6,7 @@
 		    
 			
 				<class name="PlanesPremiumEN" table="PlanesPremium"> 
-				  	
-						<id name="IdPlan" column="IDplan" type="integer"> 
-							<generator class="hilo"/>
-						</id>
+						<id name="IdPlan" column="IDplan"/> 
 			
 					
 					<property name="Precio" type="float"> 
@@ -34,7 +31,7 @@
 								
 								<column name="FK_IDplan_idPlanesPremium"/>
 					      	</key>
-							<one-to-many class="UniDATESGenNHibernate.EN.UniDATES.UsuarioPremiumEN"/>
+							<one-to-many class="UniDATESGenNHibernate.EN.UniDATES.UsuarioEN"/>
 					    </bag>
 					
 					

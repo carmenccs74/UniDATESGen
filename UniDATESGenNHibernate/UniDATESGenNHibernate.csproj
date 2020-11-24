@@ -129,34 +129,26 @@
 			
 			<Compile Include="CEN\UniDATES\UsuarioCEN_DesbloquearAdmin.cs" />
 			
+			<Compile Include="CEN\UniDATES\UsuarioCEN_Registrarse.cs" />
+			
+			<Compile Include="CEN\UniDATES\UsuarioCEN_EditarPerfil.cs" />
 			
 			
-			<Compile Include="CEN\UniDATES\UsuarioCEN_BuscarUsuario.cs" />
-			
-			<Compile Include="CEN\UniDATES\UsuarioCEN_VerPerfil.cs" />
 			
 			
-	<Compile Include="EN\UniDATES\BusquedaEN.cs" />
-	<Compile Include="CEN\UniDATES\BusquedaCEN.cs" />
-	<Compile Include="CAD\UniDATES\IBusquedaCAD.cs" />
-	<Compile Include="CAD\UniDATES\BusquedaCAD.cs" />
-	<Compile Include="CP\UniDATES\BusquedaCP.cs" />
+			
+			
+			
+			
+			
 			
 	<Compile Include="EN\UniDATES\FiltrosEN.cs" />
 	<Compile Include="CEN\UniDATES\FiltrosCEN.cs" />
 	<Compile Include="CAD\UniDATES\IFiltrosCAD.cs" />
 	<Compile Include="CAD\UniDATES\FiltrosCAD.cs" />
 	<Compile Include="CP\UniDATES\FiltrosCP.cs" />
-			<Compile Include="CEN\UniDATES\FiltrosCEN_Elegir.cs" />
 			
 			
-			
-			
-	<Compile Include="EN\UniDATES\ResultadoEN.cs" />
-	<Compile Include="CEN\UniDATES\ResultadoCEN.cs" />
-	<Compile Include="CAD\UniDATES\IResultadoCAD.cs" />
-	<Compile Include="CAD\UniDATES\ResultadoCAD.cs" />
-	<Compile Include="CP\UniDATES\ResultadoCP.cs" />
 			
 			
 	<Compile Include="EN\UniDATES\PublicacionEN.cs" />
@@ -185,7 +177,14 @@
 	<Compile Include="CAD\UniDATES\ICitaCAD.cs" />
 	<Compile Include="CAD\UniDATES\CitaCAD.cs" />
 	<Compile Include="CP\UniDATES\CitaCP.cs" />
+			<Compile Include="CEN\UniDATES\CitaCEN_New_.cs" />
 			
+			
+			
+			
+			
+			
+			<Compile Include="CEN\UniDATES\CitaCEN_Aceptar.cs" />
 			
 	<Compile Include="EN\UniDATES\AdministradorEN.cs" />
 	<Compile Include="CEN\UniDATES\AdministradorCEN.cs" />
@@ -195,24 +194,16 @@
 			
 			
 			
+			
+			
 	<Compile Include="EN\UniDATES\IncidenciaEN.cs" />
 	<Compile Include="CEN\UniDATES\IncidenciaCEN.cs" />
 	<Compile Include="CAD\UniDATES\IIncidenciaCAD.cs" />
 	<Compile Include="CAD\UniDATES\IncidenciaCAD.cs" />
 	<Compile Include="CP\UniDATES\IncidenciaCP.cs" />
-			<Compile Include="CEN\UniDATES\IncidenciaCEN_Asignar.cs" />
-			
 			<Compile Include="CEN\UniDATES\IncidenciaCEN_Resolver.cs" />
 			
 			
-			
-			
-	<Compile Include="EN\UniDATES\UsuarioPremiumEN.cs" />
-	<Compile Include="CEN\UniDATES\UsuarioPremiumCEN.cs" />
-	<Compile Include="CAD\UniDATES\IUsuarioPremiumCAD.cs" />
-	<Compile Include="CAD\UniDATES\UsuarioPremiumCAD.cs" />
-	<Compile Include="CP\UniDATES\UsuarioPremiumCP.cs" />
-			<Compile Include="CP\UniDATES\UsuarioPremiumCP_Pagar.cs" />
 			
 			
 			
@@ -223,8 +214,7 @@
 	<Compile Include="CAD\UniDATES\IPlanesPremiumCAD.cs" />
 	<Compile Include="CAD\UniDATES\PlanesPremiumCAD.cs" />
 	<Compile Include="CP\UniDATES\PlanesPremiumCP.cs" />
-			<Compile Include="CEN\UniDATES\PlanesPremiumCEN_Elegir.cs" />
-			
+			<Compile Include="CP\UniDATES\PlanesPremiumCP_Pagar.cs" />
 			
 			
 			
@@ -233,6 +223,9 @@
 	<Compile Include="CAD\UniDATES\IMensajeCAD.cs" />
 	<Compile Include="CAD\UniDATES\MensajeCAD.cs" />
 	<Compile Include="CP\UniDATES\MensajeCP.cs" />
+			<Compile Include="CP\UniDATES\MensajeCP_New_.cs" />
+			
+			
 			
 			
 			
@@ -244,6 +237,7 @@
 	<Compile Include="Enumerated\UniDATES\OcioEnum.cs" />
 	<Compile Include="Enumerated\UniDATES\MotivoIncidenciaEnum.cs" />
 	<Compile Include="Enumerated\UniDATES\SexoEnum.cs" />
+	<Compile Include="Enumerated\UniDATES\PlanesPremEnum.cs" />
 	
 	
 
@@ -260,15 +254,12 @@
 		  <ItemGroup>
 		  
 	<EmbeddedResource Include="Mappings\UniDATES\usuario.hbm.xml" />
-	<EmbeddedResource Include="Mappings\UniDATES\busqueda.hbm.xml" />
 	<EmbeddedResource Include="Mappings\UniDATES\filtros.hbm.xml" />
-	<EmbeddedResource Include="Mappings\UniDATES\resultado.hbm.xml" />
 	<EmbeddedResource Include="Mappings\UniDATES\publicacion.hbm.xml" />
 	<EmbeddedResource Include="Mappings\UniDATES\sesion.hbm.xml" />
 	<EmbeddedResource Include="Mappings\UniDATES\cita.hbm.xml" />
 	<EmbeddedResource Include="Mappings\UniDATES\administrador.hbm.xml" />
 	<EmbeddedResource Include="Mappings\UniDATES\incidencia.hbm.xml" />
-	<EmbeddedResource Include="Mappings\UniDATES\usuariopremium.hbm.xml" />
 	<EmbeddedResource Include="Mappings\UniDATES\planespremium.hbm.xml" />
 	<EmbeddedResource Include="Mappings\UniDATES\mensaje.hbm.xml" />
 	

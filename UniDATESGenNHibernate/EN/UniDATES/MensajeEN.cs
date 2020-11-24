@@ -43,7 +43,7 @@ private UniDATESGenNHibernate.EN.UniDATES.UsuarioEN emisor;
 /**
  *	Atributo receptor
  */
-private System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN> receptor;
+private UniDATESGenNHibernate.EN.UniDATES.UsuarioEN receptor;
 
 
 
@@ -80,7 +80,7 @@ public virtual UniDATESGenNHibernate.EN.UniDATES.UsuarioEN Emisor {
 
 
 
-public virtual System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN> Receptor {
+public virtual UniDATESGenNHibernate.EN.UniDATES.UsuarioEN Receptor {
         get { return receptor; } set { receptor = value;  }
 }
 
@@ -90,12 +90,11 @@ public virtual System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATE
 
 public MensajeEN()
 {
-        receptor = new System.Collections.Generic.List<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN>();
 }
 
 
 
-public MensajeEN(int idMensaje, string texto, string imagen, string video, UniDATESGenNHibernate.EN.UniDATES.UsuarioEN emisor, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN> receptor
+public MensajeEN(int idMensaje, string texto, string imagen, string video, UniDATESGenNHibernate.EN.UniDATES.UsuarioEN emisor, UniDATESGenNHibernate.EN.UniDATES.UsuarioEN receptor
                  )
 {
         this.init (IdMensaje, texto, imagen, video, emisor, receptor);
@@ -108,7 +107,7 @@ public MensajeEN(MensajeEN mensaje)
 }
 
 private void init (int idMensaje
-                   , string texto, string imagen, string video, UniDATESGenNHibernate.EN.UniDATES.UsuarioEN emisor, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN> receptor)
+                   , string texto, string imagen, string video, UniDATESGenNHibernate.EN.UniDATES.UsuarioEN emisor, UniDATESGenNHibernate.EN.UniDATES.UsuarioEN receptor)
 {
         this.IdMensaje = idMensaje;
 

@@ -39,7 +39,7 @@ public ISesionCAD get_ISesionCAD ()
         return this._ISesionCAD;
 }
 
-public int IniciarSesion (Nullable<DateTime> p_fechaInicio, Nullable<DateTime> p_fechaFin)
+public int IniciarSesion (Nullable<DateTime> p_fechaInicio, Nullable<DateTime> p_fechaFin, int p_usuario, int p_administrador)
 {
         SesionEN sesionEN = null;
         int oid;
@@ -49,6 +49,22 @@ public int IniciarSesion (Nullable<DateTime> p_fechaInicio, Nullable<DateTime> p
         sesionEN.FechaInicio = p_fechaInicio;
 
         sesionEN.FechaFin = p_fechaFin;
+
+
+        if (p_usuario != -1) {
+                // El argumento p_usuario -> Property usuario es oid = false
+                // Lista de oids idSesion
+                sesionEN.Usuario = new UniDATESGenNHibernate.EN.UniDATES.UsuarioEN ();
+                sesionEN.Usuario.IdUsuario = p_usuario;
+        }
+
+
+        if (p_administrador != -1) {
+                // El argumento p_administrador -> Property administrador es oid = false
+                // Lista de oids idSesion
+                sesionEN.Administrador = new UniDATESGenNHibernate.EN.UniDATES.AdministradorEN ();
+                sesionEN.Administrador.IdAdministrador = p_administrador;
+        }
 
         //Call to SesionCAD
 
@@ -56,7 +72,7 @@ public int IniciarSesion (Nullable<DateTime> p_fechaInicio, Nullable<DateTime> p
         return oid;
 }
 
-public int IniciarSesionconHuella (Nullable<DateTime> p_fechaInicio, Nullable<DateTime> p_fechaFin)
+public int IniciarSesionconHuella (Nullable<DateTime> p_fechaInicio, Nullable<DateTime> p_fechaFin, int p_usuario, int p_administrador)
 {
         SesionEN sesionEN = null;
         int oid;
@@ -66,6 +82,22 @@ public int IniciarSesionconHuella (Nullable<DateTime> p_fechaInicio, Nullable<Da
         sesionEN.FechaInicio = p_fechaInicio;
 
         sesionEN.FechaFin = p_fechaFin;
+
+
+        if (p_usuario != -1) {
+                // El argumento p_usuario -> Property usuario es oid = false
+                // Lista de oids idSesion
+                sesionEN.Usuario = new UniDATESGenNHibernate.EN.UniDATES.UsuarioEN ();
+                sesionEN.Usuario.IdUsuario = p_usuario;
+        }
+
+
+        if (p_administrador != -1) {
+                // El argumento p_administrador -> Property administrador es oid = false
+                // Lista de oids idSesion
+                sesionEN.Administrador = new UniDATESGenNHibernate.EN.UniDATES.AdministradorEN ();
+                sesionEN.Administrador.IdAdministrador = p_administrador;
+        }
 
         //Call to SesionCAD
 

@@ -39,7 +39,11 @@ public IFiltrosCAD get_IFiltrosCAD ()
         return this._IFiltrosCAD;
 }
 
-public int New_ (UniDATESGenNHibernate.Enumerated.UniDATES.ObjetivoEnum p_objetivoCita, string p_universidad, int p_curso, string p_grado, string p_facultad, UniDATESGenNHibernate.Enumerated.UniDATES.GastronomiaEnum p_gastronomia, UniDATESGenNHibernate.Enumerated.UniDATES.DeportesEnum p_deporte, UniDATESGenNHibernate.Enumerated.UniDATES.OcioEnum p_ocio, UniDATESGenNHibernate.Enumerated.UniDATES.GustosMusicalesEnum p_gustosMusicales, int p_busqueda)
+public System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN> Elegir (UniDATESGenNHibernate.Enumerated.UniDATES.ObjetivoEnum? p_objetivoCita, string p_universidad, int? p_curso, string p_grado, string p_facultad, UniDATESGenNHibernate.Enumerated.UniDATES.GastronomiaEnum? p_gastronomia, UniDATESGenNHibernate.Enumerated.UniDATES.DeportesEnum? p_deporte, UniDATESGenNHibernate.Enumerated.UniDATES.OcioEnum? p_ocio, UniDATESGenNHibernate.Enumerated.UniDATES.GustosMusicalesEnum ? p_gustosMusicales)
+{
+        return _IFiltrosCAD.Elegir (p_objetivoCita, p_universidad, p_curso, p_grado, p_facultad, p_gastronomia, p_deporte, p_ocio, p_gustosMusicales);
+}
+public int New_ (UniDATESGenNHibernate.Enumerated.UniDATES.ObjetivoEnum p_objetivoCita, string p_universidad, int p_curso, string p_grado, string p_facultad, UniDATESGenNHibernate.Enumerated.UniDATES.GastronomiaEnum p_gastronomia, UniDATESGenNHibernate.Enumerated.UniDATES.DeportesEnum p_deporte, UniDATESGenNHibernate.Enumerated.UniDATES.OcioEnum p_ocio, UniDATESGenNHibernate.Enumerated.UniDATES.GustosMusicalesEnum p_gustosMusicales, int p_usuario)
 {
         FiltrosEN filtrosEN = null;
         int oid;
@@ -65,11 +69,11 @@ public int New_ (UniDATESGenNHibernate.Enumerated.UniDATES.ObjetivoEnum p_objeti
         filtrosEN.GustosMusicales = p_gustosMusicales;
 
 
-        if (p_busqueda != -1) {
-                // El argumento p_busqueda -> Property busqueda es oid = false
+        if (p_usuario != -1) {
+                // El argumento p_usuario -> Property usuario es oid = false
                 // Lista de oids idFiltros
-                filtrosEN.Busqueda = new UniDATESGenNHibernate.EN.UniDATES.BusquedaEN ();
-                filtrosEN.Busqueda.IdBusqueda = p_busqueda;
+                filtrosEN.Usuario = new UniDATESGenNHibernate.EN.UniDATES.UsuarioEN ();
+                filtrosEN.Usuario.IdUsuario = p_usuario;
         }
 
         //Call to FiltrosCAD

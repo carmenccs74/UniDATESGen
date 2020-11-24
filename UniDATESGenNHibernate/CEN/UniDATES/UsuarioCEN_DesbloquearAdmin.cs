@@ -25,7 +25,11 @@ public void DesbloquearAdmin (int p_oid)
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method DesbloquearAdmin() not yet implemented.");
+        UsuarioEN us = _IUsuarioCAD.ReadOIDDefault (p_oid);
+
+        us.Bloqueado = false;
+
+        _IUsuarioCAD.ModifyDefault (us);
 
         /*PROTECTED REGION END*/
 }

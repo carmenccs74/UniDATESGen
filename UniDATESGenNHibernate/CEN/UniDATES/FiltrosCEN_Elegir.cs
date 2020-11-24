@@ -24,8 +24,9 @@ public void Elegir (int p_oid)
         /*PROTECTED REGION ID(UniDATESGenNHibernate.CEN.UniDATES_Filtros_Elegir) ENABLED START*/
 
         // Write here your custom code...
+        FiltrosEN en = _IFiltrosCAD.ReadOIDDefault (p_oid);
 
-        throw new NotImplementedException ("Method Elegir() not yet implemented.");
+
 
         /*PROTECTED REGION END*/
 }

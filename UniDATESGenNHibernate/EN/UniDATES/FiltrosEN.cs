@@ -69,16 +69,16 @@ private UniDATESGenNHibernate.Enumerated.UniDATES.GustosMusicalesEnum gustosMusi
 
 
 /**
- *	Atributo busqueda
+ *	Atributo idFiltros
  */
-private UniDATESGenNHibernate.EN.UniDATES.BusquedaEN busqueda;
+private int idFiltros;
 
 
 
 /**
- *	Atributo idFiltros
+ *	Atributo usuario
  */
-private int idFiltros;
+private UniDATESGenNHibernate.EN.UniDATES.UsuarioEN usuario;
 
 
 
@@ -139,14 +139,14 @@ public virtual UniDATESGenNHibernate.Enumerated.UniDATES.GustosMusicalesEnum Gus
 
 
 
-public virtual UniDATESGenNHibernate.EN.UniDATES.BusquedaEN Busqueda {
-        get { return busqueda; } set { busqueda = value;  }
+public virtual int IdFiltros {
+        get { return idFiltros; } set { idFiltros = value;  }
 }
 
 
 
-public virtual int IdFiltros {
-        get { return idFiltros; } set { idFiltros = value;  }
+public virtual UniDATESGenNHibernate.EN.UniDATES.UsuarioEN Usuario {
+        get { return usuario; } set { usuario = value;  }
 }
 
 
@@ -159,20 +159,20 @@ public FiltrosEN()
 
 
 
-public FiltrosEN(int idFiltros, UniDATESGenNHibernate.Enumerated.UniDATES.ObjetivoEnum objetivoCita, string universidad, int curso, string grado, string facultad, UniDATESGenNHibernate.Enumerated.UniDATES.GastronomiaEnum gastronomia, UniDATESGenNHibernate.Enumerated.UniDATES.DeportesEnum deporte, UniDATESGenNHibernate.Enumerated.UniDATES.OcioEnum ocio, UniDATESGenNHibernate.Enumerated.UniDATES.GustosMusicalesEnum gustosMusicales, UniDATESGenNHibernate.EN.UniDATES.BusquedaEN busqueda
+public FiltrosEN(int idFiltros, UniDATESGenNHibernate.Enumerated.UniDATES.ObjetivoEnum objetivoCita, string universidad, int curso, string grado, string facultad, UniDATESGenNHibernate.Enumerated.UniDATES.GastronomiaEnum gastronomia, UniDATESGenNHibernate.Enumerated.UniDATES.DeportesEnum deporte, UniDATESGenNHibernate.Enumerated.UniDATES.OcioEnum ocio, UniDATESGenNHibernate.Enumerated.UniDATES.GustosMusicalesEnum gustosMusicales, UniDATESGenNHibernate.EN.UniDATES.UsuarioEN usuario
                  )
 {
-        this.init (IdFiltros, objetivoCita, universidad, curso, grado, facultad, gastronomia, deporte, ocio, gustosMusicales, busqueda);
+        this.init (IdFiltros, objetivoCita, universidad, curso, grado, facultad, gastronomia, deporte, ocio, gustosMusicales, usuario);
 }
 
 
 public FiltrosEN(FiltrosEN filtros)
 {
-        this.init (IdFiltros, filtros.ObjetivoCita, filtros.Universidad, filtros.Curso, filtros.Grado, filtros.Facultad, filtros.Gastronomia, filtros.Deporte, filtros.Ocio, filtros.GustosMusicales, filtros.Busqueda);
+        this.init (IdFiltros, filtros.ObjetivoCita, filtros.Universidad, filtros.Curso, filtros.Grado, filtros.Facultad, filtros.Gastronomia, filtros.Deporte, filtros.Ocio, filtros.GustosMusicales, filtros.Usuario);
 }
 
 private void init (int idFiltros
-                   , UniDATESGenNHibernate.Enumerated.UniDATES.ObjetivoEnum objetivoCita, string universidad, int curso, string grado, string facultad, UniDATESGenNHibernate.Enumerated.UniDATES.GastronomiaEnum gastronomia, UniDATESGenNHibernate.Enumerated.UniDATES.DeportesEnum deporte, UniDATESGenNHibernate.Enumerated.UniDATES.OcioEnum ocio, UniDATESGenNHibernate.Enumerated.UniDATES.GustosMusicalesEnum gustosMusicales, UniDATESGenNHibernate.EN.UniDATES.BusquedaEN busqueda)
+                   , UniDATESGenNHibernate.Enumerated.UniDATES.ObjetivoEnum objetivoCita, string universidad, int curso, string grado, string facultad, UniDATESGenNHibernate.Enumerated.UniDATES.GastronomiaEnum gastronomia, UniDATESGenNHibernate.Enumerated.UniDATES.DeportesEnum deporte, UniDATESGenNHibernate.Enumerated.UniDATES.OcioEnum ocio, UniDATESGenNHibernate.Enumerated.UniDATES.GustosMusicalesEnum gustosMusicales, UniDATESGenNHibernate.EN.UniDATES.UsuarioEN usuario)
 {
         this.IdFiltros = idFiltros;
 
@@ -195,7 +195,7 @@ private void init (int idFiltros
 
         this.GustosMusicales = gustosMusicales;
 
-        this.Busqueda = busqueda;
+        this.Usuario = usuario;
 }
 
 public override bool Equals (object obj)

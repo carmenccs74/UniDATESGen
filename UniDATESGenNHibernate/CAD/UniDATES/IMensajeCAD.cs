@@ -22,5 +22,12 @@ void Modify (MensajeEN mensaje);
 
 void Destroy (int idMensaje
               );
+
+
+MensajeEN ReadOID (int idMensaje
+                   );
+
+
+System.Collections.Generic.IList<MensajeEN> ReadAll (int first, int size);
 }
 }

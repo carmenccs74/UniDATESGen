@@ -19,13 +19,17 @@ namespace UniDATESGenNHibernate.CEN.UniDATES
 {
 public partial class IncidenciaCEN
 {
-public void Resolver (int p_oid)
+public void Resolver (int p_oid, string p_resolucion)
 {
         /*PROTECTED REGION ID(UniDATESGenNHibernate.CEN.UniDATES_Incidencia_Resolver) ENABLED START*/
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method Resolver() not yet implemented.");
+        IncidenciaEN en = _IIncidenciaCAD.ReadOIDDefault (p_oid);
+
+        en.Resolucion = p_resolucion;
+
+        _IIncidenciaCAD.ModifyDefault (en);
 
         /*PROTECTED REGION END*/
 }

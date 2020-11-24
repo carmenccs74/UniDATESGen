@@ -6,7 +6,7 @@ namespace UniDATESGenNHibernate.CAD.UniDATES
 {
 public partial interface IPlanesPremiumCAD
 {
-PlanesPremiumEN ReadOIDDefault (int idPlan
+PlanesPremiumEN ReadOIDDefault (UniDATESGenNHibernate.Enumerated.UniDATES.PlanesPremEnum idPlan
                                 );
 
 void ModifyDefault (PlanesPremiumEN planesPremium);
@@ -15,13 +15,12 @@ System.Collections.Generic.IList<PlanesPremiumEN> ReadAllDefault (int first, int
 
 
 
-
-int New_ (PlanesPremiumEN planesPremium);
+UniDATESGenNHibernate.Enumerated.UniDATES.PlanesPremEnum Pagar (PlanesPremiumEN planesPremium);
 
 void Modify (PlanesPremiumEN planesPremium);
 
 
-void Destroy (int idPlan
+void Destroy (UniDATESGenNHibernate.Enumerated.UniDATES.PlanesPremEnum idPlan
               );
 }
 }

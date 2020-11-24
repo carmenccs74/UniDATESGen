@@ -122,6 +122,20 @@ public int IniciarSesion (SesionEN sesion)
         try
         {
                 SessionInitializeTransaction ();
+                if (sesion.Usuario != null) {
+                        // Argumento OID y no colección.
+                        sesion.Usuario = (UniDATESGenNHibernate.EN.UniDATES.UsuarioEN)session.Load (typeof(UniDATESGenNHibernate.EN.UniDATES.UsuarioEN), sesion.Usuario.IdUsuario);
+
+                        sesion.Usuario.Sesion
+                        .Add (sesion);
+                }
+                if (sesion.Administrador != null) {
+                        // Argumento OID y no colección.
+                        sesion.Administrador = (UniDATESGenNHibernate.EN.UniDATES.AdministradorEN)session.Load (typeof(UniDATESGenNHibernate.EN.UniDATES.AdministradorEN), sesion.Administrador.IdAdministrador);
+
+                        sesion.Administrador.Sesion
+                        .Add (sesion);
+                }
 
                 session.Save (sesion);
                 SessionCommit ();
@@ -148,6 +162,20 @@ public int IniciarSesionconHuella (SesionEN sesion)
         try
         {
                 SessionInitializeTransaction ();
+                if (sesion.Usuario != null) {
+                        // Argumento OID y no colección.
+                        sesion.Usuario = (UniDATESGenNHibernate.EN.UniDATES.UsuarioEN)session.Load (typeof(UniDATESGenNHibernate.EN.UniDATES.UsuarioEN), sesion.Usuario.IdUsuario);
+
+                        sesion.Usuario.Sesion
+                        .Add (sesion);
+                }
+                if (sesion.Administrador != null) {
+                        // Argumento OID y no colección.
+                        sesion.Administrador = (UniDATESGenNHibernate.EN.UniDATES.AdministradorEN)session.Load (typeof(UniDATESGenNHibernate.EN.UniDATES.AdministradorEN), sesion.Administrador.IdAdministrador);
+
+                        sesion.Administrador.Sesion
+                        .Add (sesion);
+                }
 
                 session.Save (sesion);
                 SessionCommit ();

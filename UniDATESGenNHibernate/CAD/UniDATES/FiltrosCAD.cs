@@ -137,16 +137,54 @@ public void ModifyDefault (FiltrosEN filtros)
 }
 
 
+public System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN> Elegir (UniDATESGenNHibernate.Enumerated.UniDATES.ObjetivoEnum? p_objetivoCita, string p_universidad, int? p_curso, string p_grado, string p_facultad, UniDATESGenNHibernate.Enumerated.UniDATES.GastronomiaEnum? p_gastronomia, UniDATESGenNHibernate.Enumerated.UniDATES.DeportesEnum? p_deporte, UniDATESGenNHibernate.Enumerated.UniDATES.OcioEnum? p_ocio, UniDATESGenNHibernate.Enumerated.UniDATES.GustosMusicalesEnum ? p_gustosMusicales)
+{
+        System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM FiltrosEN self where select usuario FROM UsuarioEN as usuario inner join usuario.Filtros as filtro where (:p_objetivoCita is not null and filtro.ObjetivoCita = :p_objetivoCita)  or (:p_universidad is not null and filtro.Universidad = :p_universidad) or (:p_curso is not null and filtro.Curso = :p_curso) or (:p_grado is not null and filtro.Grado = :p_grado) or (:p_facultad is not null and filtro.Facultad = :p_facultad) or (:p_gastronomia is not null and filtro.Gastronomia = :p_gastronomia) or (:p_deporte is not null and filtro.Deporte = :p_deporte) or (:p_ocio is not null and filtro.Ocio = :p_ocio) or (:p_gustosMusicales is not null and filtro.GustosMusicales = :p_gustosMusicales)";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("FiltrosENElegirHQL");
+                query.SetParameter ("p_objetivoCita", p_objetivoCita);
+                query.SetParameter ("p_universidad", p_universidad);
+                query.SetParameter ("p_curso", p_curso);
+                query.SetParameter ("p_grado", p_grado);
+                query.SetParameter ("p_facultad", p_facultad);
+                query.SetParameter ("p_gastronomia", p_gastronomia);
+                query.SetParameter ("p_deporte", p_deporte);
+                query.SetParameter ("p_ocio", p_ocio);
+                query.SetParameter ("p_gustosMusicales", p_gustosMusicales);
+
+                result = query.List<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UniDATESGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UniDATESGenNHibernate.Exceptions.DataLayerException ("Error in FiltrosCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 public int New_ (FiltrosEN filtros)
 {
         try
         {
                 SessionInitializeTransaction ();
-                if (filtros.Busqueda != null) {
+                if (filtros.Usuario != null) {
                         // Argumento OID y no colección.
-                        filtros.Busqueda = (UniDATESGenNHibernate.EN.UniDATES.BusquedaEN)session.Load (typeof(UniDATESGenNHibernate.EN.UniDATES.BusquedaEN), filtros.Busqueda.IdBusqueda);
+                        filtros.Usuario = (UniDATESGenNHibernate.EN.UniDATES.UsuarioEN)session.Load (typeof(UniDATESGenNHibernate.EN.UniDATES.UsuarioEN), filtros.Usuario.IdUsuario);
 
-                        filtros.Busqueda.Filtros
+                        filtros.Usuario.Filtros
                         .Add (filtros);
                 }
 

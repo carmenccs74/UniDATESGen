@@ -15,21 +15,26 @@
 					<property name="Objetivo" > 
 						<column name="objetivo"  not-null="true"/>
 					</property>
+					<property name="Aceptada" type="boolean"> 
+						<column name="aceptada"  not-null="true"/>
+					</property>
 			
 			
 			
 			
 		  			
 						<many-to-one name="UsuarioSolicitante" class="UniDATESGenNHibernate.EN.UniDATES.UsuarioEN" >	
-								<column name="FK_ID Usuario_idUsuario"/> 
+								<column name="FK_IDUsuario_idUsuario"/> 
 						</many-to-one>
 											 					
 			
 		  			
 						<many-to-one name="UsuarioReceptor" class="UniDATESGenNHibernate.EN.UniDATES.UsuarioEN" >	
-								<column name="FK_ID Usuario_idUsuario_0"/> 
+								<column name="FK_IDUsuario_idUsuario_0"/> 
 						</many-to-one>
 											 					
+			
+					
 					
 					
 					
@@ -38,5 +43,7 @@
 		 </class>	
 		  
 		  <query name="CitaENReadAllHQL">from CitaEN</query>
+		  <query name="CitaENDameChatsHQL"><![CDATA[select cit FROM CitaEN as cit where cit.UsuarioReceptor.Nombre = :usu_nombre and cit.Aceptada = true or cit.UsuarioSolicitante.Nombre = :usu_nombre]]></query>
+		  <query name="CitaENDamePendientesHQL"><![CDATA[FROM CitaEN as cit where cit.Aceptada = false and cit.UsuarioReceptor.Nombre = :usu_nombre]]></query>
 		</hibernate-mapping>
 	

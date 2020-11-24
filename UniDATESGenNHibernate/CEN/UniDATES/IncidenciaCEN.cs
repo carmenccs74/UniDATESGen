@@ -39,7 +39,7 @@ public IIncidenciaCAD get_IIncidenciaCAD ()
         return this._IIncidenciaCAD;
 }
 
-public int New_ (UniDATESGenNHibernate.Enumerated.UniDATES.MotivoIncidenciaEnum p_motivo, Nullable<DateTime> p_fecha, string p_resolucion, int p_usuarioDenunciante, int p_usuarioDenunciado, int p_administrador)
+public int New_ (UniDATESGenNHibernate.Enumerated.UniDATES.MotivoIncidenciaEnum p_motivo, Nullable<DateTime> p_fecha, int p_usuarioDenunciante, int p_usuarioDenunciado, int p_administrador)
 {
         IncidenciaEN incidenciaEN = null;
         int oid;
@@ -49,8 +49,6 @@ public int New_ (UniDATESGenNHibernate.Enumerated.UniDATES.MotivoIncidenciaEnum 
         incidenciaEN.Motivo = p_motivo;
 
         incidenciaEN.Fecha = p_fecha;
-
-        incidenciaEN.Resolucion = p_resolucion;
 
 
         if (p_usuarioDenunciante != -1) {
@@ -82,7 +80,7 @@ public int New_ (UniDATESGenNHibernate.Enumerated.UniDATES.MotivoIncidenciaEnum 
         return oid;
 }
 
-public void Modify (int p_Incidencia_OID, UniDATESGenNHibernate.Enumerated.UniDATES.MotivoIncidenciaEnum p_motivo, Nullable<DateTime> p_fecha, string p_resolucion)
+public void Modify (int p_Incidencia_OID, UniDATESGenNHibernate.Enumerated.UniDATES.MotivoIncidenciaEnum p_motivo, Nullable<DateTime> p_fecha)
 {
         IncidenciaEN incidenciaEN = null;
 
@@ -91,7 +89,6 @@ public void Modify (int p_Incidencia_OID, UniDATESGenNHibernate.Enumerated.UniDA
         incidenciaEN.IdIncidencia = p_Incidencia_OID;
         incidenciaEN.Motivo = p_motivo;
         incidenciaEN.Fecha = p_fecha;
-        incidenciaEN.Resolucion = p_resolucion;
         //Call to IncidenciaCAD
 
         _IIncidenciaCAD.Modify (incidenciaEN);
@@ -101,6 +98,27 @@ public void Destroy (int idIncidencia
                      )
 {
         _IIncidenciaCAD.Destroy (idIncidencia);
+}
+
+public System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.IncidenciaEN> DameDenuncias (int ? p_idAdministrador)
+{
+        return _IIncidenciaCAD.DameDenuncias (p_idAdministrador);
+}
+public IncidenciaEN ReadOID (int idIncidencia
+                             )
+{
+        IncidenciaEN incidenciaEN = null;
+
+        incidenciaEN = _IIncidenciaCAD.ReadOID (idIncidencia);
+        return incidenciaEN;
+}
+
+public System.Collections.Generic.IList<IncidenciaEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<IncidenciaEN> list = null;
+
+        list = _IIncidenciaCAD.ReadAll (first, size);
+        return list;
 }
 }
 }

@@ -22,5 +22,12 @@ void Modify (AdministradorEN administrador);
 
 void Destroy (int idAdministrador
               );
+
+
+AdministradorEN ReadOID (int idAdministrador
+                         );
+
+
+System.Collections.Generic.IList<AdministradorEN> ReadAll (int first, int size);
 }
 }

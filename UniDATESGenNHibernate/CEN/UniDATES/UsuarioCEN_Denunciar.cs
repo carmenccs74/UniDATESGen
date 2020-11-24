@@ -19,13 +19,19 @@ namespace UniDATESGenNHibernate.CEN.UniDATES
 {
 public partial class UsuarioCEN
 {
-public void Denunciar (int p_oid)
+public void Denunciar (int p_oid, int p_idUsuDenunciar, Nullable<DateTime> p_fecha, UniDATESGenNHibernate.Enumerated.UniDATES.MotivoIncidenciaEnum p_motivo, int p_Administrador)
 {
         /*PROTECTED REGION ID(UniDATESGenNHibernate.CEN.UniDATES_Usuario_Denunciar) ENABLED START*/
 
-        // Write here your custom code...
+        UsuarioEN usuDenunciado = _IUsuarioCAD.ReadOIDDefault (p_idUsuDenunciar);
 
-        throw new NotImplementedException ("Method Denunciar() not yet implemented.");
+        usuDenunciado.Denunciado = true;
+
+        IncidenciaCEN incidenciaCEN = new IncidenciaCEN ();
+
+        incidenciaCEN.New_ (p_motivo, p_fecha, p_oid, p_idUsuDenunciar, p_Administrador);
+
+        _IUsuarioCAD.ModifyDefault (usuDenunciado);
 
         /*PROTECTED REGION END*/
 }

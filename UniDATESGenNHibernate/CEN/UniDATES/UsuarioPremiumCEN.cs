@@ -39,7 +39,7 @@ public IUsuarioPremiumCAD get_IUsuarioPremiumCAD ()
         return this._IUsuarioPremiumCAD;
 }
 
-public int HacerPremium (string p_nombre, string p_apellidos, String p_contraseña, string p_email, int p_telefono, UniDATESGenNHibernate.Enumerated.UniDATES.SexoEnum p_sexo, string p_universidad, string p_facultad, string p_grado, int p_curso, UniDATESGenNHibernate.Enumerated.UniDATES.ObjetivoEnum p_objetivo, string p_descripcion, string p_gustoGastronomico, string p_ocio, UniDATESGenNHibernate.Enumerated.UniDATES.GustosMusicalesEnum p_gustoMusical, UniDATESGenNHibernate.Enumerated.UniDATES.DeportesEnum p_deporte, string p_registroCitas, string p_registroDenuncias, char p_bloqueado, Nullable<DateTime> p_fechaAlta, Nullable<DateTime> p_fechaBaja, UniDATESGenNHibernate.Enumerated.UniDATES.OrientacionSexualEnum p_orientaciónSexual, int p_sesion, int p_numeroTarjeta, string p_titular, Nullable<DateTime> p_fechaCaducidad, int p_cvv)
+public int HacerPremium (string p_nombre, string p_apellidos, String p_contraseña, string p_email, int p_telefono, UniDATESGenNHibernate.Enumerated.UniDATES.SexoEnum p_sexo, bool p_bloqueado, UniDATESGenNHibernate.Enumerated.UniDATES.OrientacionSexualEnum p_orientaciónSexual, bool p_denunciado, bool p_premium, string p_usuariosBloqueados, int p_numeroTarjeta, string p_titular, Nullable<DateTime> p_fechaCaducidad, int p_cvv)
 {
         UsuarioPremiumEN usuarioPremiumEN = null;
         int oid;
@@ -58,45 +58,15 @@ public int HacerPremium (string p_nombre, string p_apellidos, String p_contrase�
 
         usuarioPremiumEN.Sexo = p_sexo;
 
-        usuarioPremiumEN.Universidad = p_universidad;
-
-        usuarioPremiumEN.Facultad = p_facultad;
-
-        usuarioPremiumEN.Grado = p_grado;
-
-        usuarioPremiumEN.Curso = p_curso;
-
-        usuarioPremiumEN.Objetivo = p_objetivo;
-
-        usuarioPremiumEN.Descripcion = p_descripcion;
-
-        usuarioPremiumEN.GustoGastronomico = p_gustoGastronomico;
-
-        usuarioPremiumEN.Ocio = p_ocio;
-
-        usuarioPremiumEN.GustoMusical = p_gustoMusical;
-
-        usuarioPremiumEN.Deporte = p_deporte;
-
-        usuarioPremiumEN.RegistroCitas = p_registroCitas;
-
-        usuarioPremiumEN.RegistroDenuncias = p_registroDenuncias;
-
         usuarioPremiumEN.Bloqueado = p_bloqueado;
-
-        usuarioPremiumEN.FechaAlta = p_fechaAlta;
-
-        usuarioPremiumEN.FechaBaja = p_fechaBaja;
 
         usuarioPremiumEN.OrientaciónSexual = p_orientaciónSexual;
 
+        usuarioPremiumEN.Denunciado = p_denunciado;
 
-        if (p_sesion != -1) {
-                // El argumento p_sesion -> Property sesion es oid = false
-                // Lista de oids idUsuario
-                usuarioPremiumEN.Sesion = new UniDATESGenNHibernate.EN.UniDATES.SesionEN ();
-                usuarioPremiumEN.Sesion.IdSesion = p_sesion;
-        }
+        usuarioPremiumEN.Premium = p_premium;
+
+        usuarioPremiumEN.UsuariosBloqueados = p_usuariosBloqueados;
 
         usuarioPremiumEN.NumeroTarjeta = p_numeroTarjeta;
 
@@ -112,7 +82,7 @@ public int HacerPremium (string p_nombre, string p_apellidos, String p_contrase�
         return oid;
 }
 
-public void Modify (int p_UsuarioPremium_OID, string p_nombre, string p_apellidos, String p_contraseña, string p_email, int p_telefono, UniDATESGenNHibernate.Enumerated.UniDATES.SexoEnum p_sexo, string p_universidad, string p_facultad, string p_grado, int p_curso, UniDATESGenNHibernate.Enumerated.UniDATES.ObjetivoEnum p_objetivo, string p_descripcion, string p_gustoGastronomico, string p_ocio, UniDATESGenNHibernate.Enumerated.UniDATES.GustosMusicalesEnum p_gustoMusical, UniDATESGenNHibernate.Enumerated.UniDATES.DeportesEnum p_deporte, string p_registroCitas, string p_registroDenuncias, char p_bloqueado, Nullable<DateTime> p_fechaAlta, Nullable<DateTime> p_fechaBaja, UniDATESGenNHibernate.Enumerated.UniDATES.OrientacionSexualEnum p_orientaciónSexual, int p_numeroTarjeta, string p_titular, Nullable<DateTime> p_fechaCaducidad, int p_cvv)
+public void Modify (int p_UsuarioPremium_OID, string p_nombre, string p_apellidos, String p_contraseña, string p_email, int p_telefono, UniDATESGenNHibernate.Enumerated.UniDATES.SexoEnum p_sexo, bool p_bloqueado, UniDATESGenNHibernate.Enumerated.UniDATES.OrientacionSexualEnum p_orientaciónSexual, bool p_denunciado, bool p_premium, string p_usuariosBloqueados, int p_numeroTarjeta, string p_titular, Nullable<DateTime> p_fechaCaducidad, int p_cvv)
 {
         UsuarioPremiumEN usuarioPremiumEN = null;
 
@@ -125,22 +95,11 @@ public void Modify (int p_UsuarioPremium_OID, string p_nombre, string p_apellido
         usuarioPremiumEN.Email = p_email;
         usuarioPremiumEN.Telefono = p_telefono;
         usuarioPremiumEN.Sexo = p_sexo;
-        usuarioPremiumEN.Universidad = p_universidad;
-        usuarioPremiumEN.Facultad = p_facultad;
-        usuarioPremiumEN.Grado = p_grado;
-        usuarioPremiumEN.Curso = p_curso;
-        usuarioPremiumEN.Objetivo = p_objetivo;
-        usuarioPremiumEN.Descripcion = p_descripcion;
-        usuarioPremiumEN.GustoGastronomico = p_gustoGastronomico;
-        usuarioPremiumEN.Ocio = p_ocio;
-        usuarioPremiumEN.GustoMusical = p_gustoMusical;
-        usuarioPremiumEN.Deporte = p_deporte;
-        usuarioPremiumEN.RegistroCitas = p_registroCitas;
-        usuarioPremiumEN.RegistroDenuncias = p_registroDenuncias;
         usuarioPremiumEN.Bloqueado = p_bloqueado;
-        usuarioPremiumEN.FechaAlta = p_fechaAlta;
-        usuarioPremiumEN.FechaBaja = p_fechaBaja;
         usuarioPremiumEN.OrientaciónSexual = p_orientaciónSexual;
+        usuarioPremiumEN.Denunciado = p_denunciado;
+        usuarioPremiumEN.Premium = p_premium;
+        usuarioPremiumEN.UsuariosBloqueados = p_usuariosBloqueados;
         usuarioPremiumEN.NumeroTarjeta = p_numeroTarjeta;
         usuarioPremiumEN.Titular = p_titular;
         usuarioPremiumEN.FechaCaducidad = p_fechaCaducidad;

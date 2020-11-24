@@ -95,6 +95,9 @@ public void ModifyDefault (CitaEN cita)
 
 
 
+
+                citaEN.Aceptada = cita.Aceptada;
+
                 session.Update (citaEN);
                 SessionCommit ();
         }
@@ -114,7 +117,7 @@ public void ModifyDefault (CitaEN cita)
 }
 
 
-public int Aceptar (CitaEN cita)
+public int New_ (CitaEN cita)
 {
         try
         {
@@ -162,6 +165,153 @@ public void Rechazar (int idCita
                 SessionInitializeTransaction ();
                 CitaEN citaEN = (CitaEN)session.Load (typeof(CitaEN), idCita);
                 session.Delete (citaEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UniDATESGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UniDATESGenNHibernate.Exceptions.DataLayerException ("Error in CitaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
+public System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.CitaEN> DameChats (string usu_nombre)
+{
+        System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.CitaEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM CitaEN self where select cit FROM CitaEN as cit where cit.UsuarioReceptor.Nombre = :usu_nombre and cit.Aceptada = true or cit.UsuarioSolicitante.Nombre = :usu_nombre";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("CitaENDameChatsHQL");
+                query.SetParameter ("usu_nombre", usu_nombre);
+
+                result = query.List<UniDATESGenNHibernate.EN.UniDATES.CitaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UniDATESGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UniDATESGenNHibernate.Exceptions.DataLayerException ("Error in CitaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.CitaEN> DamePendientes (string usu_nombre)
+{
+        System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.CitaEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM CitaEN self where FROM CitaEN as cit where cit.Aceptada = false and cit.UsuarioReceptor.Nombre = :usu_nombre";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("CitaENDamePendientesHQL");
+                query.SetParameter ("usu_nombre", usu_nombre);
+
+                result = query.List<UniDATESGenNHibernate.EN.UniDATES.CitaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UniDATESGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UniDATESGenNHibernate.Exceptions.DataLayerException ("Error in CitaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+//Sin e: ReadOID
+//Con e: CitaEN
+public CitaEN ReadOID (int idCita
+                       )
+{
+        CitaEN citaEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                citaEN = (CitaEN)session.Get (typeof(CitaEN), idCita);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UniDATESGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UniDATESGenNHibernate.Exceptions.DataLayerException ("Error in CitaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return citaEN;
+}
+
+public System.Collections.Generic.IList<CitaEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<CitaEN> result = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(CitaEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<CitaEN>();
+                else
+                        result = session.CreateCriteria (typeof(CitaEN)).List<CitaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UniDATESGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UniDATESGenNHibernate.Exceptions.DataLayerException ("Error in CitaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+
+public void Aceptar (CitaEN cita)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                CitaEN citaEN = (CitaEN)session.Load (typeof(CitaEN), cita.IdCita);
+
+                citaEN.Aceptada = cita.Aceptada;
+
+                session.Update (citaEN);
                 SessionCommit ();
         }
 

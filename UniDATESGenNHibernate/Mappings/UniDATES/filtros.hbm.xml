@@ -50,12 +50,12 @@
 			
 			
 			
+			
 		  			
-						<many-to-one name="Busqueda" class="UniDATESGenNHibernate.EN.UniDATES.BusquedaEN" >	
-								<column name="FK_IDbusqueda_idBusqueda"/> 
+						<many-to-one name="Usuario" class="UniDATESGenNHibernate.EN.UniDATES.UsuarioEN" >	
+								<column name="FK_IDUsuario_idUsuario"/> 
 						</many-to-one>
 											 					
-			
 					
 					
 					
@@ -71,5 +71,6 @@
 		 </class>	
 		  
 		  <query name="FiltrosENReadAllHQL">from FiltrosEN</query>
+		  <query name="FiltrosENElegirHQL"><![CDATA[select usuario FROM UsuarioEN as usuario inner join usuario.Filtros as filtro where (:p_objetivoCita is not null and filtro.ObjetivoCita = :p_objetivoCita)  or (:p_universidad is not null and filtro.Universidad = :p_universidad) or (:p_curso is not null and filtro.Curso = :p_curso) or (:p_grado is not null and filtro.Grado = :p_grado) or (:p_facultad is not null and filtro.Facultad = :p_facultad) or (:p_gastronomia is not null and filtro.Gastronomia = :p_gastronomia) or (:p_deporte is not null and filtro.Deporte = :p_deporte) or (:p_ocio is not null and filtro.Ocio = :p_ocio) or (:p_gustosMusicales is not null and filtro.GustosMusicales = :p_gustosMusicales)]]></query>
 		</hibernate-mapping>
 	

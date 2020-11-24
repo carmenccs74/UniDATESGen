@@ -22,10 +22,15 @@
 			
 			
 		  			
-						<many-to-one name="Sesion" class="UniDATESGenNHibernate.EN.UniDATES.SesionEN" >	
-								<column name="FK_attribute_idSesion"/> 
-						</many-to-one>
-											 					
+						<bag name="Sesion" >
+							<key>
+							
+								
+								<column name="FK_IDadministrador_idAdministrador"/>
+					      	</key>
+							<one-to-many class="UniDATESGenNHibernate.EN.UniDATES.SesionEN"/>
+					    </bag>
+					
 			
 			
 			

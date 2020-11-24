@@ -29,20 +29,15 @@
 			
 		  			
 						<many-to-one name="Emisor" class="UniDATESGenNHibernate.EN.UniDATES.UsuarioEN" >	
-								<column name="FK_ID Usuario_idUsuario"/> 
+								<column name="FK_IDUsuario_idUsuario"/> 
 						</many-to-one>
 											 					
 			
 		  			
-						<bag name="Receptor" table="[usuario_mensaje_2]" inverse="true" >
-							<key>
-								
-									<column name="FK_idMensajeMensaje_idMensaje"/> 
-							</key>
-      						<many-to-many class="UniDATESGenNHibernate.EN.UniDATES.UsuarioEN">
-									<column name="FK_ID Usuario_idReceptor"/> 
-      						</many-to-many>
-    					</bag>
+						<many-to-one name="Receptor" class="UniDATESGenNHibernate.EN.UniDATES.UsuarioEN" >	
+								<column name="FK_IDUsuario_idReceptor"/> 
+						</many-to-one>
+											 					
 					
 					
 					

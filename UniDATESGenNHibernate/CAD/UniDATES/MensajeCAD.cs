@@ -132,6 +132,13 @@ public int New_ (MensajeEN mensaje)
                         mensaje.Emisor.MensajesEnviados
                         .Add (mensaje);
                 }
+                if (mensaje.Receptor != null) {
+                        // Argumento OID y no colección.
+                        mensaje.Receptor = (UniDATESGenNHibernate.EN.UniDATES.UsuarioEN)session.Load (typeof(UniDATESGenNHibernate.EN.UniDATES.UsuarioEN), mensaje.Receptor.IdUsuario);
+
+                        mensaje.Receptor.MensajesRecibidos
+                        .Add (mensaje);
+                }
 
                 session.Save (mensaje);
                 SessionCommit ();
@@ -208,6 +215,66 @@ public void Destroy (int idMensaje
         {
                 SessionClose ();
         }
+}
+
+//Sin e: ReadOID
+//Con e: MensajeEN
+public MensajeEN ReadOID (int idMensaje
+                          )
+{
+        MensajeEN mensajeEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                mensajeEN = (MensajeEN)session.Get (typeof(MensajeEN), idMensaje);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UniDATESGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UniDATESGenNHibernate.Exceptions.DataLayerException ("Error in MensajeCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return mensajeEN;
+}
+
+public System.Collections.Generic.IList<MensajeEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<MensajeEN> result = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(MensajeEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<MensajeEN>();
+                else
+                        result = session.CreateCriteria (typeof(MensajeEN)).List<MensajeEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UniDATESGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UniDATESGenNHibernate.Exceptions.DataLayerException ("Error in MensajeCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
 }
 }
 }

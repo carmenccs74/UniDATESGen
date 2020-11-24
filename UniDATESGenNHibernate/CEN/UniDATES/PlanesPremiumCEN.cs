@@ -39,26 +39,7 @@ public IPlanesPremiumCAD get_IPlanesPremiumCAD ()
         return this._IPlanesPremiumCAD;
 }
 
-public int New_ (float p_precio, string p_descripcion, string p_nombre)
-{
-        PlanesPremiumEN planesPremiumEN = null;
-        int oid;
-
-        //Initialized PlanesPremiumEN
-        planesPremiumEN = new PlanesPremiumEN ();
-        planesPremiumEN.Precio = p_precio;
-
-        planesPremiumEN.Descripcion = p_descripcion;
-
-        planesPremiumEN.Nombre = p_nombre;
-
-        //Call to PlanesPremiumCAD
-
-        oid = _IPlanesPremiumCAD.New_ (planesPremiumEN);
-        return oid;
-}
-
-public void Modify (int p_PlanesPremium_OID, float p_precio, string p_descripcion, string p_nombre)
+public void Modify (UniDATESGenNHibernate.Enumerated.UniDATES.PlanesPremEnum p_PlanesPremium_OID, float p_precio, string p_descripcion, string p_nombre)
 {
         PlanesPremiumEN planesPremiumEN = null;
 
@@ -73,7 +54,7 @@ public void Modify (int p_PlanesPremium_OID, float p_precio, string p_descripcio
         _IPlanesPremiumCAD.Modify (planesPremiumEN);
 }
 
-public void Destroy (int idPlan
+public void Destroy (UniDATESGenNHibernate.Enumerated.UniDATES.PlanesPremEnum idPlan
                      )
 {
         _IPlanesPremiumCAD.Destroy (idPlan);
