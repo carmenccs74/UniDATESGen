@@ -258,6 +258,8 @@ public static void InitializeData ()
                 PlanesPremiumCP planpremCP = new PlanesPremiumCP ();
                 planpremCP.Pagar (PlanesPremEnum.mes, 5, "descripcion", "mes", idUsu);
 
+                //hola
+
 
                 /*PROTECTED REGION END*/
         }
