@@ -87,6 +87,9 @@
 					<property name="UsuariosBloqueados" type="string"> 
 						<column name="usuariosBloqueados" />
 					</property>
+					<property name="Foto" type="string"> 
+						<column name="foto"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -219,6 +222,8 @@
 								<column name="FK_IDplan_idPlanesPremium"/> 
 						</many-to-one>
 											 					
+			
+					
 					
 					
 					
@@ -265,5 +270,6 @@
 		  <query name="UsuarioENDameUsuariosDenunciadosHQL"><![CDATA[select usu FROM UsuarioEN as usu where usu.Denunciado = true]]></query>
 		  <query name="UsuarioENDameUsuariosRegistradosHQL"><![CDATA[select usu FROM UsuarioEN as usu where (usu.FechaBaja is null)]]></query>
 		  <query name="UsuarioENDameUsuariosEliminadosHQL"><![CDATA[select usu FROM UsuarioEN as usu where (usu.FechaBaja is not null)]]></query>
+		  <query name="UsuarioENDameUsuariosPremiumHQL"><![CDATA[select usu FROM UsuarioEN as usu where usu.Premium = true]]></query>
 		</hibernate-mapping>
 	

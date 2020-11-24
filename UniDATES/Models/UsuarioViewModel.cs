@@ -17,11 +17,17 @@ namespace UniDATES.Models
 
         public String Nombre { get; set; }
 
-        [Display(Prompt = "Email del usuario", Description = "Email del usuario", Name = "Email usuario")]
-        [Required(ErrorMessage = "Debe indicar un email para el usuario")]
-        [StringLength(maximumLength: 100, ErrorMessage = "El email no puede tener más de 100 caracteres")]
+        [Display(Prompt = "Fecha de alta del usuario", Description = "Fecha de alta del usuario", Name = "Fecha de alta")]
+        [Required(ErrorMessage = "Debe indicar una fecha para el usuario")]
+        [StringLength(maximumLength: 50, ErrorMessage = "La fecha no puede tener más de 50 caracteres")]
 
-        public String Email { get; set; }
+        public DateTime FechaAlta { get; set; }
+
+        [Display(Prompt = "Foto del usuario", Description = "Foto de perfil del usuario", Name = "Foto perfil")]
+        [Required(ErrorMessage = "Debe indicar una foto de perfil para el usuario")]
+        [StringLength(maximumLength: 200, ErrorMessage = "La foto no puede tener más de 200 caracteres")]
+
+        public String Foto { get; set; }
 
 
 

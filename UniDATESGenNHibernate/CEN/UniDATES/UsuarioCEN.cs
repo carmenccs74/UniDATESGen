@@ -85,5 +85,9 @@ public System.Collections.Generic.IList<UsuarioEN> ReadAll (int first, int size)
         list = _IUsuarioCAD.ReadAll (first, size);
         return list;
 }
+public System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN> DameUsuariosPremium ()
+{
+        return _IUsuarioCAD.DameUsuariosPremium ();
+}
 }
 }

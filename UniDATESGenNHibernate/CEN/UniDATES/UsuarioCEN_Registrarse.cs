@@ -19,7 +19,7 @@ namespace UniDATESGenNHibernate.CEN.UniDATES
 {
 public partial class UsuarioCEN
 {
-public int Registrarse (string p_nombre, string p_apellidos, String p_contraseña, string p_email, int p_telefono, UniDATESGenNHibernate.Enumerated.UniDATES.SexoEnum p_sexo, UniDATESGenNHibernate.Enumerated.UniDATES.OrientacionSexualEnum p_orientaciónSexual)
+public int Registrarse (string p_nombre, string p_apellidos, String p_contraseña, string p_email, int p_telefono, UniDATESGenNHibernate.Enumerated.UniDATES.SexoEnum p_sexo, UniDATESGenNHibernate.Enumerated.UniDATES.OrientacionSexualEnum p_orientaciónSexual, string p_foto)
 {
         /*PROTECTED REGION ID(UniDATESGenNHibernate.CEN.UniDATES_Usuario_Registrarse_customized) ENABLED START*/
 
@@ -43,10 +43,13 @@ public int Registrarse (string p_nombre, string p_apellidos, String p_contraseñ
 
         usuarioEN.OrientaciónSexual = p_orientaciónSexual;
 
+        usuarioEN.Foto = p_foto;
+
         usuarioEN.Bloqueado = false;
         usuarioEN.Denunciado = false;
         usuarioEN.Premium = false;
 
+        usuarioEN.FechaAlta = DateTime.Today;
         //Call to UsuarioCAD
 
         oid = _IUsuarioCAD.Registrarse (usuarioEN);

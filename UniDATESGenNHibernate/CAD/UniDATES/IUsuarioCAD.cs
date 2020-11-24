@@ -53,5 +53,8 @@ UsuarioEN ReadOID (int idUsuario
 
 
 System.Collections.Generic.IList<UsuarioEN> ReadAll (int first, int size);
+
+
+System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN> DameUsuariosPremium ();
 }
 }

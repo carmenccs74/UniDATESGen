@@ -82,11 +82,11 @@ public static void InitializeData ()
                 // Insert the initilizations of entities using the CEN classes
                 CitaCEN citCEN = new CitaCEN ();
                 UsuarioCEN usuCEN = new UsuarioCEN ();
-                int usu_id = usuCEN.Registrarse ("Pepe", "Gonzalez", "AAAAAA", "pepe@gmail.com", 655768409, SexoEnum.hombre, OrientacionSexualEnum.heterosexual);
-                int usu2_id = usuCEN.Registrarse ("Juanito", "Lopez", "BBBBBB", "juanito@gmail.com", 655768409, SexoEnum.hombre, OrientacionSexualEnum.heterosexual);
-                int usu3_id = usuCEN.Registrarse ("Ismael", "Garcia", "CCCCCC", "ismael@gmail.com", 622324532, SexoEnum.hombre, OrientacionSexualEnum.bisexual);
-                int usu4_id = usuCEN.Registrarse ("Paula", "Martinez", "DDDDDD", "paula@gmail.com", 674892364, SexoEnum.mujer, OrientacionSexualEnum.heterosexual);
-                int usu5_id = usuCEN.Registrarse ("Rocío", "Benito", "EEEEEE", "rocio@gmail.com", 633285746, SexoEnum.otro, OrientacionSexualEnum.bisexual);
+                int usu_id = usuCEN.Registrarse ("Pepe", "Gonzalez", "AAAAAA", "pepe@gmail.com", 655768409, SexoEnum.hombre, OrientacionSexualEnum.heterosexual, "foto.jpg");
+                int usu2_id = usuCEN.Registrarse ("Juanito", "Lopez", "BBBBBB", "juanito@gmail.com", 655768409, SexoEnum.hombre, OrientacionSexualEnum.heterosexual, "foto.jpg");
+                int usu3_id = usuCEN.Registrarse ("Ismael", "Garcia", "CCCCCC", "ismael@gmail.com", 622324532, SexoEnum.hombre, OrientacionSexualEnum.bisexual, "foto.jpg");
+                int usu4_id = usuCEN.Registrarse ("Paula", "Martinez", "DDDDDD", "paula@gmail.com", 674892364, SexoEnum.mujer, OrientacionSexualEnum.heterosexual, "foto.jpg");
+                int usu5_id = usuCEN.Registrarse ("Rocío", "Benito", "EEEEEE", "rocio@gmail.com", 633285746, SexoEnum.otro, OrientacionSexualEnum.bisexual, "foto.jpg");
                 usuCEN.BloquearUsuario (usu_id, usu2_id);
 
 
@@ -141,7 +141,7 @@ public static void InitializeData ()
 
                 Console.WriteLine ("--------------------------------------------------------------");
                 //RESTABLECER CONTRASEÑA
-                int usu6_id = usuCEN.Registrarse ("Alejandra", "Sanchez Diaz", "contra1", "ale@gmail.com", 123456, SexoEnum.otro, OrientacionSexualEnum.homosexual);
+                int usu6_id = usuCEN.Registrarse ("Alejandra", "Sanchez Diaz", "contra1", "ale@gmail.com", 123456, SexoEnum.otro, OrientacionSexualEnum.homosexual, "foto.jpg");
 
                 Console.WriteLine ("Contraseña inicial: " + usuCEN.ReadOID (usu6_id).Contraseña);
 
@@ -151,7 +151,7 @@ public static void InitializeData ()
 
                 Console.WriteLine ("--------------------------------------------------------------");
                 //DENUNCIAR
-                int usu7_id = usuCEN.Registrarse ("Manolo", "Perez Vaquero", "contraManolo", "mpv@gmail.com", 693325112, SexoEnum.hombre, OrientacionSexualEnum.heterosexual);
+                int usu7_id = usuCEN.Registrarse ("Manolo", "Perez Vaquero", "contraManolo", "mpv@gmail.com", 693325112, SexoEnum.hombre, OrientacionSexualEnum.heterosexual, "foto.jpg");
 
                 Console.WriteLine ("Denunciado antes " + usu6_id + "?: " + usuCEN.ReadOID (usu6_id).Denunciado);
                 Console.WriteLine ("Denunciado antes " + usu3_id + "?: " + usuCEN.ReadOID (usu3_id).Denunciado);
@@ -251,12 +251,13 @@ public static void InitializeData ()
                 Console.WriteLine ("--------------------------------------------------------------");
                 //PLANES PREMIUM
                 UsuarioCEN usuaCEN = new UsuarioCEN ();
-                int idUsu = usuaCEN.Registrarse ("Pepe", "Garc�a V�zquez", "contrase�a", "pepe2@gmail.com", 123456, SexoEnum.hombre, OrientacionSexualEnum.bisexual);
+                int idUsu = usuaCEN.Registrarse ("Pepe", "Garc�a V�zquez", "contrase�a", "pepe2@gmail.com", 123456, SexoEnum.hombre, OrientacionSexualEnum.bisexual, "foto.jpg");
 
 
 
                 PlanesPremiumCP planpremCP = new PlanesPremiumCP ();
                 planpremCP.Pagar (PlanesPremEnum.mes, 5, "descripcion", "mes", idUsu);
+                planpremCP.Pagar(PlanesPremEnum.dia, 3, "desc", "dia", usu7_id);
 
                 //hola
 

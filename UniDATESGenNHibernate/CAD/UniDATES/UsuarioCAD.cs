@@ -175,6 +175,9 @@ public void ModifyDefault (UsuarioEN usuario)
                 usuarioEN.UsuariosBloqueados = usuario.UsuariosBloqueados;
 
 
+
+                usuarioEN.Foto = usuario.Foto;
+
                 session.Update (usuarioEN);
                 SessionCommit ();
         }
@@ -515,6 +518,36 @@ public System.Collections.Generic.IList<UsuarioEN> ReadAll (int first, int size)
                                  SetFirstResult (first).SetMaxResults (size).List<UsuarioEN>();
                 else
                         result = session.CreateCriteria (typeof(UsuarioEN)).List<UsuarioEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UniDATESGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UniDATESGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+
+public System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN> DameUsuariosPremium ()
+{
+        System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM UsuarioEN self where select usu FROM UsuarioEN as usu where usu.Premium = true";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("UsuarioENDameUsuariosPremiumHQL");
+
+                result = query.List<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN>();
                 SessionCommit ();
         }
 
