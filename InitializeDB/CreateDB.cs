@@ -248,6 +248,13 @@ public static void InitializeData ()
                         Console.WriteLine ("Usuario eliminado: " + us.Nombre + " " + us.Apellidos);
                 }
 
+                //DAME USUARIOS DADOS DE BAJA
+                //select usu FROM UsuarioEN as usu where (usu.FechaBaja is not null)
+                IList<UsuarioEN> listaUsuariosDadosDeBaja = usuCEN.DameUsuariosDadosDeBaja();
+                foreach(UsuarioEN us in listaUsuariosDadosDeBaja){
+                    Console.WriteLine("Usuario dado de baja: " + us.Nombre + " " + us.Apellidos);
+                }
+
                 Console.WriteLine ("--------------------------------------------------------------");
                 //PLANES PREMIUM
                 UsuarioCEN usuaCEN = new UsuarioCEN ();
