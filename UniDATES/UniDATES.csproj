@@ -197,11 +197,13 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Assemblers\IncidenciaAssembler.cs" />
     <Compile Include="Assemblers\UsuarioPremiumAssembler.cs" />
     <Compile Include="Assemblers\UsuariosDadosDeBajaAssembler.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BasicController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IncidenciaController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UsuarioPremiumController.cs" />
     <Compile Include="Controllers\UsuariosDadosDeBajaController.cs" />
@@ -210,6 +212,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\IncidenciaViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\UsuarioViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -273,6 +276,11 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\UsuarioPremium\Index.cshtml" />
     <Content Include="Views\UsuariosDadosDeBaja\Index.cshtml" />
+    <Content Include="Views\Incidencia\Index.cshtml" />
+    <Content Include="Views\Incidencia\Create.cshtml" />
+    <Content Include="Views\Incidencia\Edit.cshtml" />
+    <Content Include="Views\Incidencia\Delete.cshtml" />
+    <Content Include="Views\Incidencia\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

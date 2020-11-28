@@ -1,11 +1,11 @@
-﻿@model IEnumerable<UniDATES.Models.UsuarioViewModel>
+﻿@model IEnumerable<UniDATES.Models.IncidenciaViewModel>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Usuarios dados de baja</h2>
+<h2>Incidencias</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -13,13 +13,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Nombre)
+            @Html.DisplayNameFor(model => model.Motivo)     <!--Añadido manualmente-->
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FechaAlta)
+            @Html.DisplayNameFor(model => model.Fecha)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Foto)
+            @Html.DisplayNameFor(model => model.Resolucion)
         </th>
         <th></th>
     </tr>
@@ -27,13 +27,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
+            @Html.DisplayFor(modelItem => item.Motivo)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FechaAlta)
+            @Html.DisplayFor(modelItem => item.Fecha)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Foto)
+            @Html.DisplayFor(modelItem => item.Resolucion)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

@@ -60,12 +60,6 @@
 					<property name="Deporte" > 
 						<column name="deporte" />
 					</property>
-					<property name="RegistroCitas" type="string"> 
-						<column name="registroCitas" />
-					</property>
-					<property name="RegistroDenuncias" type="string"> 
-						<column name="registroDenuncias" />
-					</property>
 					<property name="Bloqueado" type="boolean"> 
 						<column name="bloqueado"  not-null="true"/>
 					</property>
@@ -90,8 +84,6 @@
 					<property name="Foto" type="string"> 
 						<column name="foto"  not-null="true"/>
 					</property>
-			
-			
 			
 			
 			
@@ -258,8 +250,6 @@
 					
 					
 					
-					
-					
 		
 		 </class>	
 		  
@@ -271,5 +261,6 @@
 		  <query name="UsuarioENDameUsuariosRegistradosHQL"><![CDATA[select usu FROM UsuarioEN as usu where (usu.FechaBaja is null)]]></query>
 		  <query name="UsuarioENDameUsuariosEliminadosHQL"><![CDATA[select usu FROM UsuarioEN as usu where (usu.FechaBaja is not null)]]></query>
 		  <query name="UsuarioENDameUsuariosPremiumHQL"><![CDATA[select usu FROM UsuarioEN as usu where usu.Premium = true]]></query>
+		  <query name="UsuarioENDameUsuariosDadosDeBajaHQL"><![CDATA[Select usu FROM UsuarioEN as usu where (usu.FechaBaja is not null)]]></query>
 		</hibernate-mapping>
 	

@@ -19,7 +19,7 @@ namespace UniDATES.Assemblers
             return usuarioBaja;
         }
 
-        public IList<UsuarioViewModel> ConvertListENTomModel(IList<UsuarioEN> ens)
+        public IList<UsuarioViewModel> ConvertListENToModel(IList<UsuarioEN> ens)
         {
             IList<UsuarioViewModel> usuarios = new List<UsuarioViewModel>();
             foreach (UsuarioEN en in ens)
@@ -30,3 +30,5 @@ namespace UniDATES.Assemblers
 
             return usuarios;
         }
+    }
+}

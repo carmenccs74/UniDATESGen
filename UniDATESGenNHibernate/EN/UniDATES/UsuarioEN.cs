@@ -125,20 +125,6 @@ private UniDATESGenNHibernate.Enumerated.UniDATES.DeportesEnum deporte;
 
 
 /**
- *	Atributo registroCitas
- */
-private string registroCitas;
-
-
-
-/**
- *	Atributo registroDenuncias
- */
-private string registroDenuncias;
-
-
-
-/**
  *	Atributo bloqueado
  */
 private bool bloqueado;
@@ -369,18 +355,6 @@ public virtual UniDATESGenNHibernate.Enumerated.UniDATES.DeportesEnum Deporte {
 
 
 
-public virtual string RegistroCitas {
-        get { return registroCitas; } set { registroCitas = value;  }
-}
-
-
-
-public virtual string RegistroDenuncias {
-        get { return registroDenuncias; } set { registroDenuncias = value;  }
-}
-
-
-
 public virtual bool Bloqueado {
         get { return bloqueado; } set { bloqueado = value;  }
 }
@@ -506,20 +480,20 @@ public UsuarioEN()
 
 
 
-public UsuarioEN(int idUsuario, string nombre, string apellidos, String contraseña, string email, int telefono, UniDATESGenNHibernate.Enumerated.UniDATES.SexoEnum sexo, string universidad, string facultad, string grado, int curso, UniDATESGenNHibernate.Enumerated.UniDATES.ObjetivoEnum objetivo, string descripcion, UniDATESGenNHibernate.Enumerated.UniDATES.GastronomiaEnum gustoGastronomico, UniDATESGenNHibernate.Enumerated.UniDATES.OcioEnum ocio, UniDATESGenNHibernate.Enumerated.UniDATES.GustosMusicalesEnum gustoMusical, UniDATESGenNHibernate.Enumerated.UniDATES.DeportesEnum deporte, string registroCitas, string registroDenuncias, bool bloqueado, Nullable<DateTime> fechaAlta, Nullable<DateTime> fechaBaja, UniDATESGenNHibernate.Enumerated.UniDATES.OrientacionSexualEnum orientaciónSexual, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.FiltrosEN> filtros, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.PublicacionEN> publicacion, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.SesionEN> sesion, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.IncidenciaEN> incidenciasDenunciadas, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.IncidenciaEN> incidenciasRecibidas, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.CitaEN> citasSolicitadas, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.CitaEN> citasPendientes, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.MensajeEN> mensajesEnviados, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.MensajeEN> mensajesRecibidos, bool denunciado, bool premium, string usuariosBloqueados, UniDATESGenNHibernate.EN.UniDATES.PlanesPremiumEN planesPremium, string foto
+public UsuarioEN(int idUsuario, string nombre, string apellidos, String contraseña, string email, int telefono, UniDATESGenNHibernate.Enumerated.UniDATES.SexoEnum sexo, string universidad, string facultad, string grado, int curso, UniDATESGenNHibernate.Enumerated.UniDATES.ObjetivoEnum objetivo, string descripcion, UniDATESGenNHibernate.Enumerated.UniDATES.GastronomiaEnum gustoGastronomico, UniDATESGenNHibernate.Enumerated.UniDATES.OcioEnum ocio, UniDATESGenNHibernate.Enumerated.UniDATES.GustosMusicalesEnum gustoMusical, UniDATESGenNHibernate.Enumerated.UniDATES.DeportesEnum deporte, bool bloqueado, Nullable<DateTime> fechaAlta, Nullable<DateTime> fechaBaja, UniDATESGenNHibernate.Enumerated.UniDATES.OrientacionSexualEnum orientaciónSexual, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.FiltrosEN> filtros, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.PublicacionEN> publicacion, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.SesionEN> sesion, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.IncidenciaEN> incidenciasDenunciadas, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.IncidenciaEN> incidenciasRecibidas, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.CitaEN> citasSolicitadas, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.CitaEN> citasPendientes, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.MensajeEN> mensajesEnviados, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.MensajeEN> mensajesRecibidos, bool denunciado, bool premium, string usuariosBloqueados, UniDATESGenNHibernate.EN.UniDATES.PlanesPremiumEN planesPremium, string foto
                  )
 {
-        this.init (IdUsuario, nombre, apellidos, contraseña, email, telefono, sexo, universidad, facultad, grado, curso, objetivo, descripcion, gustoGastronomico, ocio, gustoMusical, deporte, registroCitas, registroDenuncias, bloqueado, fechaAlta, fechaBaja, orientaciónSexual, filtros, publicacion, sesion, incidenciasDenunciadas, incidenciasRecibidas, citasSolicitadas, citasPendientes, mensajesEnviados, mensajesRecibidos, denunciado, premium, usuariosBloqueados, planesPremium, foto);
+        this.init (IdUsuario, nombre, apellidos, contraseña, email, telefono, sexo, universidad, facultad, grado, curso, objetivo, descripcion, gustoGastronomico, ocio, gustoMusical, deporte, bloqueado, fechaAlta, fechaBaja, orientaciónSexual, filtros, publicacion, sesion, incidenciasDenunciadas, incidenciasRecibidas, citasSolicitadas, citasPendientes, mensajesEnviados, mensajesRecibidos, denunciado, premium, usuariosBloqueados, planesPremium, foto);
 }
 
 
 public UsuarioEN(UsuarioEN usuario)
 {
-        this.init (IdUsuario, usuario.Nombre, usuario.Apellidos, usuario.Contraseña, usuario.Email, usuario.Telefono, usuario.Sexo, usuario.Universidad, usuario.Facultad, usuario.Grado, usuario.Curso, usuario.Objetivo, usuario.Descripcion, usuario.GustoGastronomico, usuario.Ocio, usuario.GustoMusical, usuario.Deporte, usuario.RegistroCitas, usuario.RegistroDenuncias, usuario.Bloqueado, usuario.FechaAlta, usuario.FechaBaja, usuario.OrientaciónSexual, usuario.Filtros, usuario.Publicacion, usuario.Sesion, usuario.IncidenciasDenunciadas, usuario.IncidenciasRecibidas, usuario.CitasSolicitadas, usuario.CitasPendientes, usuario.MensajesEnviados, usuario.MensajesRecibidos, usuario.Denunciado, usuario.Premium, usuario.UsuariosBloqueados, usuario.PlanesPremium, usuario.Foto);
+        this.init (IdUsuario, usuario.Nombre, usuario.Apellidos, usuario.Contraseña, usuario.Email, usuario.Telefono, usuario.Sexo, usuario.Universidad, usuario.Facultad, usuario.Grado, usuario.Curso, usuario.Objetivo, usuario.Descripcion, usuario.GustoGastronomico, usuario.Ocio, usuario.GustoMusical, usuario.Deporte, usuario.Bloqueado, usuario.FechaAlta, usuario.FechaBaja, usuario.OrientaciónSexual, usuario.Filtros, usuario.Publicacion, usuario.Sesion, usuario.IncidenciasDenunciadas, usuario.IncidenciasRecibidas, usuario.CitasSolicitadas, usuario.CitasPendientes, usuario.MensajesEnviados, usuario.MensajesRecibidos, usuario.Denunciado, usuario.Premium, usuario.UsuariosBloqueados, usuario.PlanesPremium, usuario.Foto);
 }
 
 private void init (int idUsuario
-                   , string nombre, string apellidos, String contraseña, string email, int telefono, UniDATESGenNHibernate.Enumerated.UniDATES.SexoEnum sexo, string universidad, string facultad, string grado, int curso, UniDATESGenNHibernate.Enumerated.UniDATES.ObjetivoEnum objetivo, string descripcion, UniDATESGenNHibernate.Enumerated.UniDATES.GastronomiaEnum gustoGastronomico, UniDATESGenNHibernate.Enumerated.UniDATES.OcioEnum ocio, UniDATESGenNHibernate.Enumerated.UniDATES.GustosMusicalesEnum gustoMusical, UniDATESGenNHibernate.Enumerated.UniDATES.DeportesEnum deporte, string registroCitas, string registroDenuncias, bool bloqueado, Nullable<DateTime> fechaAlta, Nullable<DateTime> fechaBaja, UniDATESGenNHibernate.Enumerated.UniDATES.OrientacionSexualEnum orientaciónSexual, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.FiltrosEN> filtros, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.PublicacionEN> publicacion, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.SesionEN> sesion, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.IncidenciaEN> incidenciasDenunciadas, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.IncidenciaEN> incidenciasRecibidas, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.CitaEN> citasSolicitadas, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.CitaEN> citasPendientes, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.MensajeEN> mensajesEnviados, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.MensajeEN> mensajesRecibidos, bool denunciado, bool premium, string usuariosBloqueados, UniDATESGenNHibernate.EN.UniDATES.PlanesPremiumEN planesPremium, string foto)
+                   , string nombre, string apellidos, String contraseña, string email, int telefono, UniDATESGenNHibernate.Enumerated.UniDATES.SexoEnum sexo, string universidad, string facultad, string grado, int curso, UniDATESGenNHibernate.Enumerated.UniDATES.ObjetivoEnum objetivo, string descripcion, UniDATESGenNHibernate.Enumerated.UniDATES.GastronomiaEnum gustoGastronomico, UniDATESGenNHibernate.Enumerated.UniDATES.OcioEnum ocio, UniDATESGenNHibernate.Enumerated.UniDATES.GustosMusicalesEnum gustoMusical, UniDATESGenNHibernate.Enumerated.UniDATES.DeportesEnum deporte, bool bloqueado, Nullable<DateTime> fechaAlta, Nullable<DateTime> fechaBaja, UniDATESGenNHibernate.Enumerated.UniDATES.OrientacionSexualEnum orientaciónSexual, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.FiltrosEN> filtros, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.PublicacionEN> publicacion, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.SesionEN> sesion, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.IncidenciaEN> incidenciasDenunciadas, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.IncidenciaEN> incidenciasRecibidas, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.CitaEN> citasSolicitadas, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.CitaEN> citasPendientes, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.MensajeEN> mensajesEnviados, System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.MensajeEN> mensajesRecibidos, bool denunciado, bool premium, string usuariosBloqueados, UniDATESGenNHibernate.EN.UniDATES.PlanesPremiumEN planesPremium, string foto)
 {
         this.IdUsuario = idUsuario;
 
@@ -555,10 +529,6 @@ private void init (int idUsuario
         this.GustoMusical = gustoMusical;
 
         this.Deporte = deporte;
-
-        this.RegistroCitas = registroCitas;
-
-        this.RegistroDenuncias = registroDenuncias;
 
         this.Bloqueado = bloqueado;
 

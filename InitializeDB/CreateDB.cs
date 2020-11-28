@@ -250,9 +250,9 @@ public static void InitializeData ()
 
                 //DAME USUARIOS DADOS DE BAJA
                 //select usu FROM UsuarioEN as usu where (usu.FechaBaja is not null)
-                IList<UsuarioEN> listaUsuariosDadosDeBaja = usuCEN.DameUsuariosDadosDeBaja();
-                foreach(UsuarioEN us in listaUsuariosDadosDeBaja){
-                    Console.WriteLine("Usuario dado de baja: " + us.Nombre + " " + us.Apellidos);
+                IList<UsuarioEN> listaUsuariosDadosDeBaja = usuCEN.DameUsuariosDadosDeBaja ();
+                foreach (UsuarioEN us in listaUsuariosDadosDeBaja) {
+                        Console.WriteLine ("Usuario dado de baja: " + us.Nombre + " " + us.Apellidos);
                 }
 
                 Console.WriteLine ("--------------------------------------------------------------");
@@ -264,7 +264,7 @@ public static void InitializeData ()
 
                 PlanesPremiumCP planpremCP = new PlanesPremiumCP ();
                 planpremCP.Pagar (PlanesPremEnum.mes, 5, "descripcion", "mes", idUsu);
-                planpremCP.Pagar(PlanesPremEnum.dia, 3, "desc", "dia", usu7_id);
+                planpremCP.Pagar (PlanesPremEnum.dia, 3, "desc", "dia", usu7_id);
 
                 //hola
 

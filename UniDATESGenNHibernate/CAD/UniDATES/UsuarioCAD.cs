@@ -139,12 +139,6 @@ public void ModifyDefault (UsuarioEN usuario)
                 usuarioEN.Deporte = usuario.Deporte;
 
 
-                usuarioEN.RegistroCitas = usuario.RegistroCitas;
-
-
-                usuarioEN.RegistroDenuncias = usuario.RegistroDenuncias;
-
-
                 usuarioEN.Bloqueado = usuario.Bloqueado;
 
 
@@ -546,6 +540,35 @@ public System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.Usuari
                 //String sql = @"FROM UsuarioEN self where select usu FROM UsuarioEN as usu where usu.Premium = true";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("UsuarioENDameUsuariosPremiumHQL");
+
+                result = query.List<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UniDATESGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UniDATESGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN> DameUsuariosDadosDeBaja ()
+{
+        System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM UsuarioEN self where Select usu FROM UsuarioEN as usu where (usu.FechaBaja is not null)";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("UsuarioENDameUsuariosDadosDeBajaHQL");
 
                 result = query.List<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN>();
                 SessionCommit ();

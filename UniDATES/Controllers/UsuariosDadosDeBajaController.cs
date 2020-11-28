@@ -21,7 +21,7 @@ namespace UniDATES.Controllers
             UsuarioCEN usuarioCEN = new UsuarioCEN(usuarioCAD);
 
             IList<UsuarioEN> listEN = usuarioCEN.DameUsuariosDadosDeBaja();
-            IEnumerable<UsuarioViewModel> listViewModel = new UsuariosDadosDeBajaAssembler().ConvertListENTomModel(listEN).ToList();
+            IEnumerable<UsuarioViewModel> listViewModel = new UsuariosDadosDeBajaAssembler().ConvertListENToModel(listEN).ToList();
             SessionClose();
 
             return View(listViewModel);

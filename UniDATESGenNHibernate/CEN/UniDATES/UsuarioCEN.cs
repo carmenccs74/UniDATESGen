@@ -89,5 +89,9 @@ public System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.Usuari
 {
         return _IUsuarioCAD.DameUsuariosPremium ();
 }
+public System.Collections.Generic.IList<UniDATESGenNHibernate.EN.UniDATES.UsuarioEN> DameUsuariosDadosDeBaja ()
+{
+        return _IUsuarioCAD.DameUsuariosDadosDeBaja ();
+}
 }
 }
