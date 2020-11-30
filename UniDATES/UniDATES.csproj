@@ -199,14 +199,18 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Assemblers\IncidenciaAssembler.cs" />
     <Compile Include="Assemblers\UsuarioPremiumAssembler.cs" />
+    <Compile Include="Assemblers\UsuariosBloqueadosAssembler.cs" />
     <Compile Include="Assemblers\UsuariosDadosDeBajaAssembler.cs" />
+    <Compile Include="Assemblers\UsuariosRegistradosAssembler.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BasicController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IncidenciaController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UsuarioPremiumController.cs" />
+    <Compile Include="Controllers\UsuariosBloqueadosController.cs" />
     <Compile Include="Controllers\UsuariosDadosDeBajaController.cs" />
+    <Compile Include="Controllers\UsuariosRegistradosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -281,6 +285,9 @@
     <Content Include="Views\Incidencia\Edit.cshtml" />
     <Content Include="Views\Incidencia\Delete.cshtml" />
     <Content Include="Views\Incidencia\Details.cshtml" />
+    <Content Include="Views\UsuariosRegistrados\Index.cshtml" />
+    <Content Include="Views\Index.cshtml" />
+    <Content Include="Views\UsuariosBloqueados\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
